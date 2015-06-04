@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>slide</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<style>
+			* {
+				outline: 0;
+			}
+			html, body {
+				background-color: #3ABA63;
+			}
+			/*header*/
+			header {
+				background-color: #f2f2f2;
+				border-bottom: 1px solid #f2f2f2;
+			}
+			.header {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+			}
+			.header a {
+				display: block;
+				background-size: 30px;
+				background-repeat: no-repeat;
+				background-position: center;
+				padding: 20px;
+			}
+			.title {
+				line-height: 40px;
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				flex: 1;
+				text-align: center;
+			}
+			.header .menu {
+				background-image: url("../image/menu.png");
+			}
+			#ooo img {
+				height: 36px;
+			}
+			/*header*/
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="index header ">
+				<a class="menu" tapmode="" onclick="sliding()"></a>
+				<div class="title" >
+					上海
+				</div>
+				<a></a>
+			</div>
+		</header>
+		<br/>
+		<br/>
+		<br/>
+		<input type="button" value="打开" onclick="openleft()"/>
+		<br/>
+		<br/>
+		<br/>
+		<input type="button" value="关闭" onclick="closeleft()"/>
+		<script type="text/javascript" src="../script/api.js"></script>
+		<script>
+			function sliding() {
+				api.openSlidPane({
+					type : 'left'
+				});
+			}
+
+			apiready = function() {
+				$api.fixIos7Bar($api.dom('.title'));
+				api.addEventListener({
+					name : 'keyback'
+				}, function(ret, err) {
+					api.closeWidget();
+				});
+			};
+			
+			function closeleft() {
+				alert("关闭");
+				api.lockSlidPane();
+			}
+			
+			function openleft() {
+				alert("打开");
+				api.unlockSlidPane();
+			}
+		</script>
+	</body>
+</html>
