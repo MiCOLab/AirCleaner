@@ -4,7 +4,7 @@
   <name>AirCleaner</name>
   <description>绑定GIT</description>
   <author email="bringmehome@vip.qq.com" href="http://www.apicloud.com">Rocke</author>
-  <content src="aircleaner/index.html"/>
+  <content src="index.html"/>
   <preference name="pageBounce" value="false"/>
   <preference name="appBackground" value="rgba(0,0,0,0.0)"/>
   <preference name="windowBackground" value="rgba(0,0,0,0.0)"/>
@@ -29,4 +29,8 @@
   <permission name="hardware"/>
   <permission name="contact"/>
   <access origin="*"/>
+  <feature name="ajpush">
+    <param name="app_key" value="9e7f9d5870b4b32510bdbc4b"/>
+    <param name="channel" value="AirCleaner"/>
+  </feature>
 </widget>

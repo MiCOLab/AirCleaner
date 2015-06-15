@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>APP</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="../script/api.js"></script>
+	</head>
+	<body>
+		<div align="center">
+			<br/>
+			<br/>
+			<input type="button" value="初始化" onclick="initAjpush()"/>
+			<br/>
+			<br/>
+			<input type="button" value="绑定" onclick="setListener()"/>
+			<br/>
+		</div>
+	</body>
+	<script>
+		var ajpush;
+		function initAjpush() {
+			var ajpush = api.require('ajpush');
+			ajpush.init(function(ret) {
+				if (ret && ret.status) {
+					//success
+					alert(JSON.stringify(ret));
+				}
+			});
+		}
+
+		function setListener() {
+			ajpush.setListener(function(ret) {
+				var id = ret.id;
+				var title = ret.title;
+				var content = ret.content;
+				var extra = ret.extra;
+			});
+		}
+	</script>
+</html>

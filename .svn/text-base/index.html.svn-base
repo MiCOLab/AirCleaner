@@ -34,7 +34,7 @@
 
         api.openFrame({
             name: 'main',
-            url: 'html/main.html',
+            url: 'html/ajpush.html',
             bounces: true,
             rect: {
                 x: 0,
