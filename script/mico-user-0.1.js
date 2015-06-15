@@ -81,14 +81,14 @@
 	};
 
 	//设置初始密码
-	m.setPassword = function(phone, password, callback) {
+	m.setPassword = function(phone, password, app_id, callback) {
 		var sucm;
 		var errm;
 		var user = AV.User.current();
 		user.setPassword(password);
 		user.save().then(function(user) {
 			//验证成功
-			$mxuser.regToEasyCloud(phone, password, function(ret, errr) {
+			$mxuser.regToEasyCloud(phone, password, app_id, function(ret, errr) {
 				if (ret) {
 					callback(ret, errm);
 				} else {
@@ -117,12 +117,13 @@
 	};
 
 	//去EasyCloud注册
-	m.regToEasyCloud = function(phone, password, callback) {
+	m.regToEasyCloud = function(phone, password, app_id, callback) {
 		var sucm;
 		var errm;
 		AV.Cloud.run('registerToEasyCloud', {
 			login_id : phone,
-			password : password
+			password : password,
+			app_id : app_id
 		}, {
 			success : function(data) {
 				//调用成功，得到成功的应答data

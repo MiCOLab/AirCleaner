@@ -4,7 +4,7 @@
   <name>AirCleaner</name>
   <description>绑定GIT</description>
   <author email="bringmehome@vip.qq.com" href="http://www.apicloud.com">Rocke</author>
-  <content src="index.html"/>
+  <content src="aircleaner/index.html"/>
   <preference name="pageBounce" value="false"/>
   <preference name="appBackground" value="rgba(0,0,0,0.0)"/>
   <preference name="windowBackground" value="rgba(0,0,0,0.0)"/>

@@ -116,6 +116,31 @@
 		});
 	};
 
+	//获取设备激活状态
+	m.getDevState = function(devip, devtoken, callback) {
+		var sucm;
+		var errm;
+		var ajaxurl = 'http://' + devip + ':8001/dev-state';
+		$.ajax({
+			url : ajaxurl,
+			type : 'POST',
+			data : JSON.stringify({
+				login_id : "admin",
+				dev_passwd : "88888888",
+				user_token : devtoken
+			}),
+			headers : {
+				"Content-Type" : "application/json"
+			},
+			success : function(ret) {
+				callback(ret, errm);
+			},
+			error : function(err) {
+				callback(sucm, err);
+			}
+		});
+	};
+
 	//去云端绑定设备
 	m.bindDevCloud = function(appid, usertoken, devtoken, callback) {
 		var sucm;
