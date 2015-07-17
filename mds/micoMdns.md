@@ -45,6 +45,7 @@ ret：
 	"deviceName":""		//设备名称
 	"deviceMac":""	//设备的MAC地址
 	"deviceIP":""	//设备的IP
+	"deviceMacbind":""	//设备是否已经激活,返回0，true，或者false
 }
 ```
 
@@ -68,11 +69,10 @@ var serviceInfo = "_easylink._tcp.local.";
 micoMmdns.startMdns({
 	serviceInfo : serviceInfo
 }, function(ret, err){
-	if(ret.deviceMac){
-		api.alert({msg:ret.deviceMac});
-	}else{
-		api.alert({msg:err.msg});
-    }
+	$.each(ret.status, function(n, value) {
+		var trs = value.deviceMac + " " + value.deviceMacbind + " " + value.deviceIP + "<br/>";
+		$("#messEdits").prepend(trs);
+	});
 });
 ```
 

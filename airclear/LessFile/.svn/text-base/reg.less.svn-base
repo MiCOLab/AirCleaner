@@ -1,0 +1,106 @@
+@charset "utf-8";
+ 
+html,body{width:100%;height: 100%;overflow: hidden;} 
+body{font-family:"Microsoft YaHei";}
+*{margin:0px;  padding: 0px; }
+@font-face {font-family:mui; src: url("../fonts/mui.ttf")} 
+li{list-style: none;}
+ 
+.base{
+	.level0{
+		width: 100%;
+		height: 100%;
+		background: url("../image/bg_level_2-01.png") no-repeat center;  
+		background-size: 100% 100%;
+		position: relative;
+	} 
+	.header{
+		width: 120px; 
+		height: 120px;
+		margin: 0px auto;
+		padding: 18px; 
+		img{ width: 100%;height: 100%;}
+	} 
+	.reg{
+		width: 256px;
+		height: 400px;
+		margin:30px auto;
+		font-size: 18pt ;
+		color: #000000;
+		opacity:0.8;
+		p{ height: 44px; margin-top: 10px; }
+		.line{height: 0px;border-bottom:1px solid #000000;opacity: 0.2; }
+		input{ width: 200px; outline: 0px; border: 0px; height: 40px;line-height: 40px; font-size: 18pt;float: left;background-color: transparent; margin-left:6px;opacity: 0.7; } 
+
+		.lblMobile{
+			background: url(../image/icon_phone-01.png) no-repeat;background-size: 44px 44px;  display: inline-block; height: 44px; width: 44px;float: left;
+		}
+		.lblpwd{
+			background: url(../image/icon_password-01.png) no-repeat; background-size: 44px 44px; height: 44px; width: 44px;display: inline-block; float: left;
+		}
+		.lblcode{
+			background: url(../image/icon_message-01.png) no-repeat;background-size: 44px 44px; height: 44px; width: 44px;display: inline-block;float: left;
+			border-width: 80px;
+		}
+		.jl{ display: inline-block; width: 25px;}
+		span{opacity: 0.2; float: left;height: 44px;line-height: 44px; }
+
+		#btnSend{ width: 70px; height: 44px; font-size:18pt;color:#000000;opacity: 0.2 ; margin-left: 10px; position: absolute;border-radius: 5px;}
+		
+		.losepwd{
+			float: right;
+			font-size: 14pt; 
+			margin-top: -15px;
+			a{
+				text-decoration: none;
+			}
+		}
+	
+		.btnReg{
+			width: 256px;
+			height: 40px;
+			margin: 20px auto;
+			text-align: center;; 
+			position: relative;
+			.bg{ width: 100%;height: 100%;background-color:#000000;opacity: 0.2 ;border-radius: 5px;};
+			.btn{  
+				width: 256px;
+				height: 40px;  
+				margin: -40px 0px 0px 0px;
+				position: absolute;
+				#btnSubmit{
+					height: 100%;
+					font-size: 18pt;
+					color: #fff;
+					width: 100%;
+					opacity: 1;
+				}
+			}
+		}
+	}
+	.footclose{
+			width: 18px;
+			height: 18px;   
+			display: inline-block;
+			position: fixed;
+			margin-left: -15px;
+			bottom: 18px;
+			background: url(../image/icon_cancel-01.png) no-repeat;
+			background-size: 18px 18px;
+			cursor: pointer;
+	}
+	.noaccount{
+		width: 108px;
+		height: 18px;   
+		display: inline-block;
+		position: fixed;
+		margin-left: -60px;
+		bottom: 48px; 
+		opacity: 0.3;
+		cursor: pointer;
+		a{
+			color:#fff;
+			text-decoration: none;
+		}
+	}
+} 

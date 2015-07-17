@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>室外主页</title> 
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+	<link rel="stylesheet" href="css/swiper.min.css"/>   
+	<link rel="stylesheet" href="css/style_2.css"/> 
+	<script type="text/javascript" src="js/jquery-2.1.3.js" ></script>
+	<script type="text/javascript" src="js/apis.js" ></script>
+	<script type="text/javascript" src="js/config.js" ></script>
+	<script type="text/javascript" src="js/av-0.5.0.min.js" ></script>
+	<script type="text/javascript" src="js/mico-user-0.1.js" ></script> 
+	<script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script> 
+    <script type="text/javascript" src="js/swiper.min.js" ></script>   
+	<script type="text/javascript" src="js/mico-bind-0.1.js" ></script>
+    <script type="text/javascript" src="js/interal_new.js" ></script> 
+<style type="text/css"> 
+	.blur{ -webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);} 
+   .swiper-container {
+        width: 100%;
+        height: 100%;
+    } 
+</style>
+</head>
+<body> 
+<div class="swiper-container" id="lrswiper">
+    <div class="swiper-wrapper">
+    	<!--设置-->
+        <div class="swiper-slide">
+            <div id="setting" class="base" >
+                <div class="level5"> 
+                
+	            <div class="oplist"> 
+	             	<div class="option" onclick="setting.acc()"><span><img src="image/icon_account.png"></span><span>账户</span></div>
+		            	<div class="option" onclick="setting.addDev()"><span><img src="image/icon_device_add.png" ></span><span>添加设备</span></div>
+		            	<div class="option" onclick="setting.addUser()"><span><img src="image/icon_device_authoriz.png"></span><span>添加使用者</span></div>
+		            	<div class="option" onclick="setting.openSetting()"><span><img src="image/icon_setting.png"></span><span>设置</span></div>
+	            </div>
+	            <div class="foot_bar">
+		            <span class="footclose" onclick="fixSetCloseBack()"></span>
+	            </div>     
+                </div>  
+            </div>
+            <div id="pagesettwo" class="base" style="display:none;">
+                <div class="level5">
+                   <div class="setbase">
+						<div class="infoimg"></div>
+					 	<ul class="infotext">
+							<li>
+				                每日推送
+				                <div class="huadong" onclick="fixTrunOnOff()">
+				                    <div class="set-hua"></div>
+				                </div>
+				            </li>
+							<li class="icon_right">
+								当前版本
+								<span class="banben">1.0</span>
+							</li>
+							<li onclick="fixDetails" class="icon_right">
+								给我们提建议
+							</li>
+					 	</ul> 
+					</div>
+					<div class="foot_bar">
+						<span class="footclose" onclick="fixClose()"></span>
+					</div>     
+                </div>
+            </div> 
+        </div>
+        <!--室内、室外-->
+        <div class="swiper-slide" id="lrswiperslide">
+            <div class="swiper-container" id="duswiper">
+                <div class="swiper-wrapper">   
+                    <!--外部主页--> 
+                    <div id="outDoor" class="swiper-slide base" > 
+                    <!--外部主页-->
+                    <div class="level0">
+                     <div style="height:20px;display:none;" class="ios20"></div>
+                     <div data-role="page" id="pagezore" data-transition="slide"> 
+	                    <div class="header">
+		                    <div class="lf">
+			                    <span class="op" onclick="fixoutset()"></span> 
+		                    </div>
+		                    <div class="lc">
+			                    <div class="dingwei"  onclick="outDoor.changCity()"><div id="txt_city" class="txt city_name">上海</div></div>
+		                    </div>
+		                    <div class="lr"></div>
+	                    </div>
+	                    <div class="outdoor">
+		                     <div class="infoimg"></div>
+		                     <div class="infotext">
+		 	                    <p  onclick="fixDetails()"><span name="quality">空气良好</span><img src="image/icon_info-01.png"></p>
+		 	                    <div class="num"   onclick="fixDetails()">
+		 		                    <span><label>AQI</label><span name="AQI">162</span></span>
+		 		                    <span><label>PM2.5</label><span name="PM2.5">132</span></span>
+		 	                    </div>
+		                     </div>
+	                    </div>  
+	                    <div class="bottomHome"   onclick="fixInhouse()">
+		                    <div class="bg"></div>
+	                    </div> 
+                    </div> 
+                    <!--主页英文-->
+                    <div data-role="page" id="pageone" data-transition="slide" style="display:none;"> 
+	                    <div class="header">
+		                    <div class="lf">
+			                    <span class="op" onclick="fixoutset()"></span> 
+		                    </div>
+		                    <div class="lc">
+			                    <span class="dingwei"  onclick="outDoor.changCity()"><span id="txt_city" class="txt city_name">上海</span></span>
+		                    </div>
+		                    <div class="lr"></div>
+	                    </div>
+	                    <div class="detail" onclick="detail1Click()">
+		                    <div class="ctext">
+			                    <div class="num"><span name="AQI">45</span><label class="lrup">AQI</label></div>
+			                    <p class="infotext"><span name="quality">空气良好</span></p> 
+		                    </div>
+		                    <div class="detailnum">
+			                    <div class="line1">
+				                    <ul class="clearfix">
+					                    <li><span name="PM2.5">132</span><p>PM2.5</p></li>
+					                    <li><span name="PM10">180</span><p>PM10</p></li> 
+					                    <li><span name="O3">182</span><p>PMO<SUB>3</SUB></p></li>  
+				                    </ul> 
+			                    </div><br/>
+			                    <div class="line2">
+				                    <ul class="clearfix">
+					                    <li><span name="SO2">39</span><p>SO<SUB>2</SUB></p></li>
+					                    <li><span name="NO2">20</span><p>NO<SUB>2</SUB></p></li> 
+					                    <li><span name="CO">182</span><p>CO</p></li>  
+				                    </ul>
+			                    </div>
+			                    <br>
+			                    <div class="line3">单位:ug/m<sup>3</sup></div>
+		                    </div>
+	                    </div>
+	                    <div class="close_bar">
+		                    &nbsp;<span class="footclose" onclick="fixBackOutMian()"></span>
+	                    </div>
+	                    <div class="bottomHome"  onclick="fixInhouse()">
+		                    <div class="bg"></div>
+	                    </div> 
+                    </div>
+                    <!--主页中文-->  
+                    <div data-role="page" id="pagetwo"  style="display:none;"> 
+	                    <div class="header">
+		                    <div class="lf">
+			                    <span class="op" onclick="fixoutset()"></span> 
+		                    </div>
+		                    <div class="lc">
+			                    <span class="dingwei"  onclick="outDoor.changCity()"><span id="txt_city" class="txt city_name">上海</span></span>
+		                    </div>
+		                    <div class="lr"></div>
+	                    </div>
+	                    <div class="detail" onclick="detail2Click()">
+		                    <div class="ctext">
+			                    <div class="num">45<label class="lrup">AQI</label></div>
+			                    <p class="infotext"><span name="quality">良</span></p> 
+		                    </div>
+		                    <div class="detailnum">
+			                    <div class="line1">
+				                    <ul class="clearfix">
+					                    <li><span name="PM2.5">132</span><p>细颗粒物</p></li>
+					                    <li><span name="PM10">180</span><p>粗颗粒物</p></li> 
+					                    <li><span name="O3">182</span><p>臭氧</p></li>  
+				                    </ul> 
+			                    </div><br/>
+			                    <div class="line2">
+				                    <ul class="clearfix">
+					                    <li><span name="SO2">39</span><p>二氧化硫</p></li>
+					                    <li><span name="NO2">20</span><p>二氧化碳</p></li> 
+					                    <li><span name="CO">182</span><p>一氧化碳</p></li>  
+				                    </ul>
+			                    </div>
+			                    <br>
+			                    <div class="line3">单位:ug/m<sup>3</sup></div>
+			                    <div style="clear:left;"></div>
+		                    </div>
+	                    </div>
+	                    <div class="close_bar">
+		                    &nbsp;<span class="footclose" onclick="fixBackOutMian()"></span>
+	                    </div>
+	                    <div class="bottomHome" onclick="outDoor.inDoor()">
+		                    <div class="bg"></div>
+	                    </div>  
+                    </div>
+                    </div>
+                   </div>
+                <!--主页中文--> 
+                    <div id="inDoor" class="swiper-slide basein">
+                        <div class="level0" info="室内这页" id="pagethree">
+                        <div style="height:25px;display:none;" class="ios20"></div>   
+	                     <div class="header">
+                            <div class="lf"><span class="op swiper-no-swiping"  onclick="fixintoset()"><p class="border"></p></span></div>  
+                             <div class="lc">
+		                        <div class="dingwei swiper-no-swiping" onclick="fixChangeName()">
+		                        	<div id="devName" class="txt">卧室</div></div>
+	                        </div>
+	                        <div class="lr" style="z-index: 1000;">
+		                        <div class="btnArea swiper-no-swiping" onclick="fixSDorZN()">
+		                        	<div id="btnZn" class="wrap">
+		                        		<div class="auto">智能</div>
+			                        	<div class="slider"><span></span></div>
+			                        	<div class="hand">手动</div>
+		                        	</div>
+		                        </div>
+	                        </div> 
+	                    </div>
+	                    <div class="indoor" id="indoortoselectdev">
+		                     <div class="infoimg"></div>
+		                     <div class="infotext">
+		 	                    <p>空气良好</p>
+		 	                    <div class="num">
+		 		                    <span><label>PM2.5</label><span name="PM25">132</span></span>
+		 		                    <span><label>CO<sub>2</sub></label><span name="CO2">0.3</span></span> 
+		 	                    </div>
+		                     </div>
+	                    </div>
+	                    <div class="bottomHomeZd swiper-no-swiping" >
+	                    	<div class="outcontent">
+			                    <img name="power" src="image/control_power_on-01.png" off="image/control_power_off-01.png" class="img1 tbtn"/>
+			                    <img name="sleep" src="image/control_sleep_on-01.png" off="image/control_sleep_off-01.png" class="img2 tbtn"/>  
+	                    	</div> 
+	                    </div>
+	                    <div class="bottomCtrlSd swiper-no-swiping">
+		                    <div class="box">
+			                    <div class="row">
+			                    	<div class="col_25"><img src="image/control_air_volume-0.png" class="img1"></div>
+			                    	<div class="col_75"><input id="fj" type="range" value="1" min="1" max="3"/></div>
+			                    </div>
+			                    <div class="row">
+			                    	<div class="col_25"><img name="power" src="image/control_power_on-01.png" off="image/control_power_off-01.png" class="img1 tbtn" /></div> 
+			                    	<div class="col_25"><img name="sleep" src="image/control_sleep_on-01.png" off="image/control_sleep_off-01.png" class="img1 tbtn" /></div>
+			                    	<div class="col_25"><img name="xinf" src="image/control_fresh_on-01..png" off="image/control_fresh_off-01.png" class="img1 tbtn"  onclick="fixXunHuan()" /></div>
+			                    	<div class="col_25"><img name="timing-on" src="image/control_timer_on-01..png" off="image/control_timer_off-01.png" class="img1 tbtn" onclick="fixDingShi()" />
+										<span class="lblDingShi">03:20开</span>
+			                    	</div>
+			                    </div>
+		                    </div> 
+	                    </div>  
+                   </div> 
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+<div class="basein"   id="devList" style=""> 
+    <div class="level0 swiper-no-swiping" info="设备选择列表">
+        <div class="header"></div>  
+        <div class="selectDevice">
+            <div class="swiper-container"  id="sliderDev">
+                <div id="dev_content" onclick="fixSelect()" class="bd swiper-wrapper">
+                    <div class="swiper-slide"><div class="img"></div>大卧室</div> 
+                    <div class="swiper-slide"><div class="img"></div>大卧室</div> 
+                    <div class="swiper-slide"><div class="img"></div>大卧室</div> 
+                </div>
+            </div> 
+            <div class="selected">
+                <img src="image/icon_confirm-01.png"/>
+            </div>
+        </div>  
+    </div>
+</div>  
+<div class="basein">  
+    <div class="dialog swiper-no-swiping" id="dlgdevicename">
+	    <div class="myform">
+		    <div class="inputarea">
+			    设备名称
+			    <p><input id="txtaccount" type="text"/></p>
+		    </div> 
+		    <div class="buttondiv">
+			    <span onclick="fixcancel()">取消</span>
+			    <span class="line"></span> 
+			    <span  onclick="inDoor.fixsave()">保存</span> 
+		    </div>
+	    </div>
+    </div>
+ </div>
+ <div class="base">
+    <div class="swiper-no-swiping" id="divOtherName">
+        <div class="dialog">
+	        <div class="myform">
+		        <div class="inputarea">
+			        对方账号
+			        <p><input id="txtOtherName" type="text"/></p>
+		        </div> 
+		        <div class="buttondiv">
+			        <span onclick="fixcancel()">取消</span>
+			        <span  onclick="setting.saveAddUser()">保存</span> 
+		        </div>
+	        </div>
+        </div>
+    </div> 
+ </div> 
+<div id="timeBG" style="display:block; background: #FAFAFA; width: 100%;position: fixed;bottom: 0px;height: 250px;z-index: 1000;">
+	
+</div>
+<script type="text/javascript" src="js/aircleaner.js" ></script> 
+<script type="text/javascript"  title="设备返回">
+    function fixKeyboard(id,target) {
+        var _obj = $("#" + id);
+        if (_obj.length > 0) {
+            _obj.focusin(function () {
+                setTimeout(function () {
+                    var h1 = $(window).height()
+                    var h2 = $("." + target).height();
+                    $("." + target).css("top", (h1 - h2) / 2); 
+                }, 2000);
+            }).focusout(function () {
+                setTimeout(function () {
+                    var h1 = $(window).height()
+                    var h2 = $("." + target).height();
+                    $("." + target).css("top", (h1 - h2) / 2);
+                    _obj.val((h1 - h2) / 2);
+                }, 600);
+            }); 
+        }
+    } 
+	$("#timeBG").hide();
+    function fixSetCloseBack() {
+        lrswiper.slideTo(1,300, false);
+    }
+</script>
+<script type="text/javascript" title="设备选择">
+    function fixSelect(argument) {
+        var $obj = $(event.target).parent();
+        if ($obj.hasClass("on")) {
+            alert($obj.text()); 
+            swiperUpOrDown.slideTo(1, 0, false);
+        }
+    }
+    //空气等级切换
+    function fixInLevelChange(t) {
+        switch (t) {
+            case "level0": //空气清新
+                $(".basein .level0,.basein .level1,.basein .level2,.basein .level3,.basein .level4").removeClass("level0 level1 level2 level3 level4 level5").addClass("level0");
+                break;
+            case "level1": //空气良好
+                $(".basein .level0,.basein .level1,.basein .level2,.basein .level3,.basein .level4").removeClass("level0 level1 level2 level3 level4 level5").addClass("level1");
+                break;
+            case "level2": //空气微浑Or轻度污染
+                $(".basein .level0,.basein .level1,.basein .level2,.basein .level3,.basein .level4").removeClass("level0 level1 level2 level3 level4 level5").addClass("level2");
+                break;
+            case "level3": //空气污浊Or中度污染
+                $(".basein .level0,.basein .level1,.basein .level2,.basein .level3,.basein .level4").removeClass("level0 level1 level2 level3 level4 level5").addClass("level3");
+                break;
+            case "level4": //不可忍受Or污染爆表
+                $(".basein .level0,.basein .level1,.basein .level2,.basein .level3,.basein .level4").removeClass("level0 level1 level2 level3 level4 level5").addClass("level4");
+                break;
+            case "level5": //睡眠模式
+                $(".basein .level0,.basein .level1,.basein .level2,.basein .level3,.basein .level4").removeClass("level0 level1 level2 level3 level4 level5").addClass("level5");
+                break;
+        }
+    }
+    function fixOutLevelChange(t) {
+        switch (t) {
+            case "level0": //空气清新
+                $("#outDoor .level0,#outDoor .level1,#outDoor .level2,#outDoor .level3,#outDoor .level4,#outDoor .level5").removeClass("level0 level1 level2 level3 level4").addClass("level0");
+                break;
+            case "level1": //空气良好
+                $("#outDoor .level0,#outDoor .level1,#outDoor .level2,#outDoor .level3,#outDoor .level4,#outDoor .level5").removeClass("level0 level1 level2 level3 level4").addClass("level1");
+                break;
+            case "level2": //空气微浑Or轻度污染
+                $("#outDoor .level0,#outDoor .level1,#outDoor .level2,#outDoor .level3,#outDoor .level4,#outDoor .level5").removeClass("level0 level1 level2 level3 level4").addClass("level2");
+                break;
+            case "level3": //空气污浊Or中度污染
+                $("#outDoor .level0,#outDoor .level1,#outDoor .level2,#outDoor .level3,#outDoor .level4,#outDoor .level5").removeClass("level0 level1 level2 level3 level4").addClass("level3");
+                break;
+            case "level4": //不可忍受Or污染爆表
+                $("#outDoor .level0,#outDoor .level1,#outDoor .level2,#outDoor .level3,#outDoor .level4,#outDoor .level5").removeClass("level0 level1 level2 level3 level4").addClass("level4");
+                break;
+        }
+    }
+</script> 
+<script type="text/javascript">
+	var setting = new Setting();
+	var outDoor = new OutDoor();
+	var inDoor = new InDoor();
+	var devlist = new DeviceList();
+</script>
+<script type="text/javascript" title="室内"> 
+    function fixintoset() {
+//  		outDoor.inDoor();
+    		lrswiper.slideTo(0,300, false);
+    }
+    //定时
+    function fixDingShi(){
+    		$api.openFrame({url:"dingshi.html",pageParam:{ty:"time"}});
+    }
+    function fixSDorZN(auto) {
+      	
+      	$zn = $("#btnZn");
+      	if (auto == null){
+          	if (inDoor.locked){
+				if(app.getUser()){
+					$api.openFrame("bindguide.html")
+				}else{
+					$api.openFrame("guide.html")
+				}
+				return
+	      	}
+      		auto = $zn.hasClass("active") ? "1" : "0";
+          	inDoor.publishCmds({"auto":auto});
+          	return;
+      	}
+  		if (auto == "1"){
+  			$zn.removeClass("active");
+            $(".bottomCtrlSd").css("display", "none");
+            $(".bottomHomeZd").css("display", "inline-block");
+            $(".indoor").removeClass("active");
+  		}else{
+  			$zn.addClass("active");
+            $(".bottomCtrlSd").css("display", "block");
+            $(".bottomHomeZd").css("display", "none");
+            $(".indoor").addClass("active");
+  		}
+    }
+    function fixChangeName() {
+        $("#lrswiper").addClass("blurfilter");
+        $("#dlgdevicename").show();
+        $("#txtaccount").val("").focus();
+    }
+    function fixcancel(argument) {
+        $("#dlgdevicename").hide();
+        $("#divOtherName .dialog").hide(); 
+        $("#lrswiper").removeClass("blurfilter");
+    }
+
+    apiready = function () {
+    		inDoor.start();
+    		addListeners();
+        fixNoMoveAndLoninout(true);
+        var $ds = $(".lblDingShi");
+        $ds.hide();
+        app.addEvt("setTiming",function (ret) {
+        		var data = ret.value;
+        		if (data.value == "00:00"){
+        			$ds.hide();
+        		}else{
+        			$ds.show();
+        			if(data.cmd == "timing-off"){
+        				$ds.text(data.value + "关");
+        			}else{
+        				$ds.text(data.value + "开");
+        			}
+        		}
+    			internal.setTiming(data.value,data.cmd)
+        })
+        app.addEvt("setXinf",function (ret) {
+        		internal.setXinf(ret.value);
+        })
+        app.checkState();
+        	api.setStatusBarStyle({
+		    style: 'light'
+		});
+        if (api.systemType == "ios")//ios头部添加25px
+            $(".ios20").show();
+        try{
+        		var ajpush = api.require('ajpush');
+			ajpush.init(function(ret) {
+			    if (ret && ret.status){
+//			    		alert(JSON.stringify(ret))
+			    }
+			});
+        	
+        }catch(e){
+        	//TODO handle the exception
+        }
+        devlist.getDevices();
+    }
+    
+    function addListeners () {
+    		api.addEventListener({ name: "autoStart" }, function (ret) {
+            setTimeout(inDoor.start(), 100)
+            devlist.clear();
+	        devlist.getDevices();
+        })
+        
+        api.addEventListener({ name: "changeDev" }, function (ret) {
+            setTimeout(inDoor.start(), 100)
+            devlist.clear();
+	        devlist.getDevices();
+        })
+        
+        api.addEventListener({name:"login"},function (ret) {
+        		devlist.clear();
+        		inDoor.start();
+        		app.checkState();
+        })
+        api.addEventListener({name:"logout"},function (ret) {
+	        	swiperUpOrDown.slideTo(0, 100, false);
+        		app.checkState();
+        })
+    }
+    internal.init();
+</script> 
+<script type="text/javascript" title="室外">  
+	//空气等级切换
+	
+	function getLevelByAQI(aqi) {
+		var num = Number(aqi);
+		if (num <= 50){
+			return "level0";
+		}else if (num <= 100){
+			return "level1";
+		}else if(num <= 150){
+			return "level2";
+		}else if (num <= 200){
+			return "level3";
+		}else if (num <=300){
+			return "level4"
+		}else {
+			return "level5";
+		}
+	}
+	
+	function fixInLevelChange(t){
+	    switch (t) {
+			case "level0"://空气清新
+                $(".basein .level0,.basein .level1,.basein .level2,.basein .level3,.basein .level4").removeClass("level0 level1 level2 level3 level4 level5").addClass("level0");
+                break;
+			case "level1"://空气良好
+                $(".basein .level0,.basein .level1,.basein .level2,.basein .level3,.basein .level4").removeClass("level0 level1 level2 level3 level4 level5").addClass("level1");
+                break;
+			case "level2"://空气微浑Or轻度污染
+                $(".basein .level0,.basein .level1,.basein .level2,.basein .level3,.basein .level4").removeClass("level0 level1 level2 level3 level4 level5").addClass("level2");
+                break;
+			case "level3"://空气污浊Or中度污染
+                $(".basein .level0,.basein .level1,.basein .level2,.basein .level3,.basein .level4").removeClass("level0 level1 level2 level3 level4 level5").addClass("level3");
+                break;
+			case "level4"://不可忍受Or污染爆表
+                $(".basein .level0,.basein .level1,.basein .level2,.basein .level3,.basein .level4").removeClass("level0 level1 level2 level3 level4 level5").addClass("level4");
+                break;
+			case "level5"://睡眠模式
+			    $(".basein .level0,.basein .level1,.basein .level2,.basein .level3,.basein .level4").removeClass("level0 level1 level2 level3 level4 level5").addClass("level5");
+                break;
+		}
+    }
+    function fixOutLevelChange(t) {
+        switch (t) {
+            case "level0": //空气清新
+                $("#outDoor .level0,#outDoor .level1,#outDoor .level2,#outDoor .level3,#outDoor .level4,#outDoor .level5").removeClass("level0 level1 level2 level3 level4").addClass("level0");
+                break;
+            case "level1": //空气良好
+                $("#outDoor .level0,#outDoor .level1,#outDoor .level2,#outDoor .level3,#outDoor .level4,#outDoor .level5").removeClass("level0 level1 level2 level3 level4").addClass("level1");
+                break;
+            case "level2": //空气微浑Or轻度污染
+                $("#outDoor .level0,#outDoor .level1,#outDoor .level2,#outDoor .level3,#outDoor .level4,#outDoor .level5").removeClass("level0 level1 level2 level3 level4").addClass("level2");
+                break;
+            case "level3": //空气污浊Or中度污染
+                $("#outDoor .level0,#outDoor .level1,#outDoor .level2,#outDoor .level3,#outDoor .level4,#outDoor .level5").removeClass("level0 level1 level2 level3 level4").addClass("level3");
+                break;
+            case "level4": //不可忍受Or污染爆表
+                $("#outDoor .level0,#outDoor .level1,#outDoor .level2,#outDoor .level3,#outDoor .level4,#outDoor .level5").removeClass("level0 level1 level2 level3 level4").addClass("level4");
+                break; 
+        }
+    } 
+	//设置
+	function fixoutset() {
+        lrswiper.slideTo(0,300, false);
+	}
+    //未登陆禁用下滑
+	function fixNoMoveAndLoninout(blogin) {
+	    if (blogin) {
+	        $("#lrswiperslide").removeClass("swiper-no-swiping");
+	        $("#setting").show();
+	        $("#pagesettwo").hide();
+	    } else {
+	        $("#lrswiperslide").addClass("swiper-no-swiping");
+	        $("#setting").hide();
+	        $("#pagesettwo").show();
+	        //未登陆不显示，设置页面的【添加用户】
+//	        $("#listhide").hide();
+        }
+       
+    }
+
+	function fixInhouse() { 
+		outDoor.inDoor();
+	}
+	var swiperUpOrDown = null, lrswiper, sliderDev;
+	$(function () {
+	    swiperUpOrDown = new Swiper('#duswiper', {
+	        direction: 'vertical',
+	        longSwipesRatio: 0.2,
+	        resistanceRatio: 0
+	    });
+	    lrswiper = new Swiper('#lrswiper', {
+	        longSwipesRatio: 0.2,
+	        resistanceRatio: 0,
+	        initialSlide: 1
+	    });
+	    sliderDev = new Swiper('#sliderDev', {
+	        centeredSlides: true,
+	        slidesPerView: 3,
+	        noSwipingClass: 'stop-swiping',
+	        onSlideChangeEnd:function (swiper) {
+	        		var devs = devlist.getList();
+	        		var dev = devs[swiper.activeIndex];
+	        		inDoor.start(dev);
+//	        		$("#dev_content").find(".swiper-slide-active").addClass("on");
+	        }
+	    });
+	    //切换等级-室内
+	    //	    fixInLevelChange("level0");
+	    //切换等级-室外
+	    //	    fixOutLevelChange("level0");
+	    //	    $(".lblDingShi").hide();
+	    //未登陆禁用下滑和显示设置
+	    //fixNoMoveAndLoninout();   
+	    if ("ios" != "ios")//ios头部添加25px
+	        $(".ios20").show();
+	});
+	function fixXunHuan() {
+		$api.openFrame({url:"dingshi.html",pageParam:{ty:"xinf",xinf:internal.xinf,djiaren:internal.djiaren}});
+	    ////打开定时页面 需求后台实现 dingshi.html   2015.7.5 
+    }
+
+	function fixClose(){
+		lrswiper.slideTo(1,300, false);
+    }
+function fixBackOutMian() {
+    $("#pagezore,#pageone,#pagetwo").hide();
+    $("#pagezore").show();
+}
+	function fixDetails(){
+		$("#pagezore,#pageone,#pagetwo").hide();
+		$("#pageone").show();
+	}
+	function detail1Click(){
+		$("#pagezore,#pageone,#pagetwo").hide();
+		$("#pagetwo").show();
+	}
+	function detail2Click(){
+		$("#pagezore,#pageone,#pagetwo").hide();
+		$("#pageone").show();
+    }
+function fixTrunOnOff() {
+    if ($('.huadong .set-hua').hasClass('on')) {
+        $('.huadong .set-hua').removeClass('on')
+    } else {
+        $('.huadong .set-hua').addClass('on')
+    }
+}
+</script>
+</body>
+</html>

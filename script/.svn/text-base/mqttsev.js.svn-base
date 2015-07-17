@@ -3,25 +3,25 @@
  */
 
 /*
-*以下是APICloud模块连接的方式
-* */
+ *以下是APICloud模块连接的方式
+ * */
+var micoMqtt;
 //publish的功能
 function micoPublish(topicStr, payloadStr) {
-	var micoMqtt = api.require("micoMqtt");
 	var topic = topicStr;
 	var command = payloadStr;
 	micoMqtt.publish({
 		topic : topic,
 		command : command
 	}, function(ret, err) {
-		if(ret.status){
+		if (ret.status) {
 		}
 	});
 }
 
 //subscribe的功能
 function micoSubscribe(host, username, password, topicStr, clientID) {
-	var micoMqtt = api.require("micoMqtt");
+	micoMqtt = api.require("micoMqtt");
 	var host = host;
 	var username = username;
 	var password = password;
@@ -34,18 +34,21 @@ function micoSubscribe(host, username, password, topicStr, clientID) {
 		password : password,
 		clientID : clientID,
 		topic : topic
-	}, function(ret, err) {
-		if (ret.status) {
-			micoMqtt.recvMqttMsg(function(ret, err) {
-				chgtxt(ret.subs);
+	}, function(rets, errs) {
+		if (rets.status) {
+			micoMqtt.recvMqttMsg(function(retr, errr) {
+				chgtxt(retr.subs);
 			});
+		} else {
+			//			apiToast("Subscribe err --> " + JSON.stringify(errs), 5000);
 		}
 	});
 }
 
 //stop mqtt
 function stopMqtt() {
-	var micoMqtt = api.require("micoMqtt");
+	micoMqtt.stopRecvMqttMsg(function(ret, err) {
+	});
 	micoMqtt.stopMqtt(function(ret, err) {
 	});
 }

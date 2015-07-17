@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="" />
+		<title></title>
+		<script src="js/api.js"></script>
+	</head>
+	<body style="margin-top: 25px;">
+		<button type="button" onclick="hook()">hookpage</button>
+		<button type="button" onclick="localPage()">localpage</button>
+		<button type="button" onclick="scanner()">scanner</button>
+		<button type="button" onclick="lasturl()">scannered</button>
+	</body>
+	<script type="text/javascript">
+		var url = null;
+		
+		function lasturl(){
+			api.openWin({
+		        name: 'main',
+		        url: url
+	        });	
+		}
+		
+		function hook(){
+			api.openWin({
+		        name: 'main',
+		        url: 'http://hook.gulumi.com/code/codelink/airclear/main.html'
+	        });
+		}
+		var inc = 0;
+		apiready = function(){
+			api.openWin({
+		        name: 'main',
+		        url: 'http://192.168.2.46:8020/codelink/airclear/outDoor.html'
+//		        url: '../airclear/outDoor.html'
+	        });
+		}
+		function scanner(){
+			var obj = api.require('scanner');
+			obj.open(function(ret,err) {
+			     if("cancel" == ret.eventType){
+			         api.alert({msg:"用户取消扫码！"});
+			     }else if("image" == ret.eventType){
+			         api.alert({msg:"用户选择扫码相册内图片"});
+			     }else{
+				    alert(ret.msg);
+				    url = ret.msg;
+			     	lasturl();		     	
+			     }
+			});
+		}
+		
+		function localPage(){
+			api.openWin({
+		        name: 'main',
+		        url: '../airclear/outDoor.html'
+	        });
+		}
+	</script>
+</html>

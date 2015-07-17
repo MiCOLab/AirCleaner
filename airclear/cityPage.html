@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="copyright" content="www.apicloud.com" />
+<link rel="stylesheet" href="css/common_api.css">
+<script type="text/javascript" src="js/apis.js" ></script>
+<style>
+    html,body,header,section,footer,nav,div,ul,ol,li,img,a,span,em,del,center,strong,var,fieldset,form,label,dt,dd,cite,input,hr,time,mark,code,figcaption,figure,textarea{
+        margin:0;
+        border:0;
+        padding:0;
+        font-family: Tahoma, Geneva, sans-serif;
+        font-style:normal;
+    }
+    html,body{
+        height: 100%;
+        width:100%;
+    }
+html,body {
+    -webkit-touch-callout:none;
+    -webkit-text-size-adjust:none;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+    -webkit-user-select:none;
+}
+header,footer,section,nav,img,a,button,em,del,strong,var,fieldset,label,cite,small,time,mark,code,figcaption,figure,textarea{
+    display:block;
+}
+header,section,footer,nav {
+    position:relative;
+    overflow:hidden;
+}
+ol,ul{
+    list-style:none;
+}
+input,button,textarea {
+    border:0;
+    margin:0;
+    padding:0;
+    font-size:1em;
+    line-height:1em;
+    -webkit-appearance:none;
+    background-color:rgba(0, 0, 0, 0);
+}
+span{
+    display:inline-block;
+}
+a,a:visited{
+    text-decoration:none;
+}
+    #header {
+        /* Webkit (Safari/Chrome 10) */
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #285E82), color-stop(1, #4F879C));
+
+        /* Webkit (Chrome 11+) */
+        background-image: -webkit-linear-gradient(top, #285E82 0%, #4F879C 100%);
+
+        /* W3C Markup, IE10 Release Preview */
+        background-image: linear-gradient(to bottom, #285E82 0%, #4F879C 100%);
+    }
+#nav{
+    display:-webkit-box;
+    height:44px;
+}
+#left {
+    width:80px;
+    color:#fff;
+    background:url(image/navbtn_back.png) no-repeat 14px 12px;
+   	/*background: url;*/
+    -webkit-background-size:12px 20px;
+}
+#left>span {
+    margin-top:13px;
+    margin-left:36px;
+    font-size:18px;
+    height:18px;
+    line-height:18px;
+}
+#middle {
+    -webkit-box-flex:1;
+    width:100%;
+    display:-webkit-box;
+    -webkit-box-pack:center;
+  	-webkit-box-align:center;
+}
+#title {
+    font-size:18px;
+	text-align:center;
+	color:#fff;
+}
+#right {
+    width:80px;
+}
+section {
+    -webkit-box-flex:1;
+}
+    body{
+        background: url(../image/common/logo.png) no-repeat center;
+        background-size: contain;
+        -webkit-background-size: contain;
+        background-color:#FFFFFF;
+    }
+</style>
+</head>
+<body>
+	<div id="wrap">
+	    <header id='header'>
+	        <nav id="nav">
+	            <a id="left" tapmode="" onclick="window.closeWin();">
+	                <span>返回</span>
+	            </a>
+	            <div id="middle">
+	                <strong id="title"></strong>
+	            </div>
+	            <a id="right">
+	            </a>
+	        </nav>
+	    </header>
+	    <div id="main">
+	    </div>
+    </div>
+</body>
+<!--<script src="../script/dataSource.js"></script>-->
+<script>
+    apiready = function(){
+        /* 一个关闭窗口,返回上一级页面的优雅实现. */
+        window.closeWin= function(winName) {
+            api.closeWin();
+        }
+        
+        /* 导航栏自适应iOS 7. */
+        var header = $api.byId('header');
+        $api.fixIos7Bar(header);
+
+        /* Android,点击返回键,可以返回上一级. */
+        window.addEventListener("keyback", function () {
+            window.addEventListener("keyback", function () {
+                if( ! api["pageParam"]["isFrame"]){ 
+                    window.closeWin();
+                }
+            });
+        });
+        
+        var cityObj = api.require('cityList');
+		var cy = 0;
+		if (api.systemType == "ios"){
+			cy = 60;
+		}else{
+			cy = 40;
+		}
+		cityObj.open({
+			y:cy,
+			h:582,
+			style:{
+//				indector:{
+//					bgColor:"#2fdef5",
+//					tintColor:"#ffffff",
+//				},
+//				contentColor:"#FFFFFF",
+//				bg:"#54d7f2",
+//				itemBg:"#2fdef5",
+//				titleColor:"#54d7f2",
+				searchBar:{
+					bg:"#2ac6dc",
+				}
+			},
+		    currentCity:'上海',
+		    resource:'widget://airclear/js/cities.json'
+		},function(ret,err) {
+			if(ret.eventType=="click"){
+//				alert("change")
+				api.sendEvent({name: "changecity",extra: ret.cityInfo.city });
+				$api.close();
+			}else{
+//				alert(JSON.stringify(ret))
+			}
+		});
+    }
+</script>
+</html>

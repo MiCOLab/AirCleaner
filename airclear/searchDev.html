@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>搜索设备</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<link rel="stylesheet" href="css/machine.css">
+	<!--<script type="text/javascript" src="js/zepto.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery-2.1.3.js" ></script>
+	<script type="text/javascript" src="js/jquery.md5.js" ></script>
+	<script type="text/javascript" src="js/mico-bind-0.1.js" ></script>
+	<script type="text/javascript" src="js/config.js" ></script>
+	<script type="text/javascript" src="js/av-0.5.0.min.js" ></script>
+	<script type="text/javascript" src="js/mico-user-0.1.js" ></script>
+	<script type="text/javascript" src="js/apis.js" ></script>
+	<script type="text/javascript" src="js/aircleaner.js" ></script>
+</head>
+<body class="base">
+<div class="level0">
+	<div class="center_bar">
+		<div class="header"> 
+			<img src="image/img_router-01.png">
+		</div>
+		<div class="reg">
+			<form method="post" action="/" id="fm">
+				<div class="p">
+					<input type="text" id="txtWiFi" placeholder="WiFi名称" class="lblwifi">
+				</div>
+				<div class="p">
+					<input type="text" id="txtpwd" placeholder="WiFi密码" class="lblpwd">
+				</div>
+				<div id="btnSubmit" onclick="fixOk()" class="btnReg">搜索</div>
+			</form>
+		</div> 
+	</div>
+	<div class="foot_bar">
+		<span class="footclose" onclick="closeSearch()"></span>  
+	</div>
+</div>
+<div class="dialog" style="display: none;">
+	<div class="myform">
+	    <div class="head">正在搜索设备...</div>
+	    <div class="content">
+	    	<p><span>1</span>长按净化器上的电源按钮3~5秒</p>
+	    	<div class="sketch">
+	    		<img src="image/btn-power.png">
+	    		<img src="image/btn-hand.png" class="hand">
+	    	</div>
+	    	<p><span>2</span>当连网标志开始闪烁时，APP即可自动搜索到设备</p>
+	    	<div class="sketch">
+		    	<span class="twinkle"></span>
+	    	</div>
+	    </div> 
+	    <div class="foot" onclick="unSearch()">取消搜索</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+	var userToken = "35cb4e93-65a6-4bd7-a7c0-e2d5d42af638";
+	var started = false;
+	function getssid () {
+		var wifissid = api.require('wifiSsid');
+		wifissid.getSsid(function(ret, err) {
+			if (ret.ssid) {
+				$("#txtWiFi").val(ret.ssid);
+//				$("#txtpwd").val("PF90MsBs4N");
+//				$("#txtpwd").val("ysr&&cxl");
+			}else{
+			    api.alert({msg:err.msg});
+			}
+		});
+	}
+	var idTimes = 0;
+	var tryTimes = 0;
+	function getDeivceId() {
+		tryTimes++;
+		$api.wait("正获取id("+tryTimes+"次)","设备IP:"+config.devip);
+		config.devToken = getDevToken();
+		$mico.getDevid(config.devip,"1234",config.devToken,function (ret,error) {
+			$api.hideWait();
+			if (ret){
+				config.device_id = ret.device_id;
+				bindDev();
+			}else{
+				if (++idTimes > 5){
+					idTimes = 0;
+					api.confirm({
+					    title: '获取失败点击确定重试',
+					    msg: "error:"+JSON.stringify(error),
+					    buttons:['确定', '取消']
+					},function(ret,err){
+					    if(ret.buttonIndex == 1){
+					        getDeivceId();
+					    }
+					});
+				}else{
+					setTimeout(getDeivceId,100);
+//					getDeivceId();
+				}
+			}
+		})
+	}
+	
+	function bindDev () {
+		$api.wait("绑定设备...");
+		$mico.bindDevCloud(app.id,userToken,config.devToken,function (ret,error) {
+			$api.hideWait();
+			if(ret){
+//				alert(JSON.stringify(ret))
+				app.currentDevice(config.device_id);
+				api.alert({msg:"绑定成功"},function () {
+					authDev();
+				})
+			}else{
+				api.alert({msg:error.msg})
+			}
+		})
+	}
+	function authDev () {
+		$api.wait("授权中...")
+		$mico.authDev(app.id,userToken,config.phone,config.device_id,function (ret,error) {
+			$api.hideWait();
+			$api.setStorage("devConfig",config);
+			getDevList();
+//			checkOwner();
+		});
+	}
+	function getDevList() {
+		$api.wait("更新设备列表...")
+		$mico.getDevList(userToken,function (ret,err) {
+			$api.hideWait();
+			if(ret){
+				for (var i = 0; i < ret.length; i++) {
+					if (ret[i].id == config.device_id){
+						app.currentDevice(ret[i]);
+						break;
+					}
+				}
+			}
+			checkOwner();
+		})
+	}
+	
+	function checkOwner() {
+		$api.wait("验证权限");
+		$mico.getAuthDev(userToken,function (ret) {
+			$api.hideWait();
+			var isOwner = false;
+			for (var i = 0; i < ret.length; i++) {
+				if (ret[i].id == config.device_id){
+					isOwner = true;
+					break;
+				}
+			}
+			alert(isOwner)
+			if (isOwner){
+				api.alert({msg:"当前为owner权限，可以修改设备名"},function () {
+					$api.openFrame("newDevice.html");
+				})
+			}else{
+				api.alert({msg:"当前为share权限"},function (ret,err) {
+					api.sendEvent({
+					    name: 'autoStart',
+					    extra: config
+					});
+					$api.closeFrame();
+				})
+			}
+		})
+	}
+	
+	function getDeivce() {
+		var isFinded = false;
+		var devipme = api.require('micoBind');
+		devipme.getDevip({
+		    wifi_ssid : config.ssid,
+		    wifi_password : config.pw
+		}, function(ret, err) {
+			$(".dialog").hide();
+			started = false;
+		    if (ret.devip) {
+		    		if (isFinded){
+		    			alert("fineded");
+		    			return;
+		    		}
+		    		isFinded = true;
+		    		config.devip = ret.devip;
+		        getDeivceId();
+//		    		api.confirm({
+//				    title: '发现设备',
+//				    msg: "设备ip:"+config.devip+"点击确定进行绑定",
+//				    buttons:['确定', '取消']
+//				},function(ret,err){
+//				    if(ret.buttonIndex == 1){
+//				    }
+//				});
+		    }else{
+		        api.alert({msg:err.msg});
+		    }
+		});
+	}
+	
+	function getDevToken() {
+		return $.md5(config.devip + userToken);
+	}
+	
+	apiready=function (){
+		userToken = app.getUser().userToken;
+		getssid();
+	}
+	
+	function closeSearch () {
+		$api.closeFrame();
+	}
+	
+	function unSearch() {
+		$(".dialog").hide();
+		var obj = api.require('micoBind');
+		try{
+			obj.stopFtc(function(ret, err) {});
+		}catch(e){}
+	}
+
+	function fixOk(){
+//		if(started) return;
+		config.ssid = $("#txtWiFi").val();
+		config.pw = $("#txtpwd").val();
+		getDeivce();
+		$(".dialog").show();
+		started = true;
+	}
+</script>
+</body>
+</html>

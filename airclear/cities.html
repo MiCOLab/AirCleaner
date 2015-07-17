@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>室外主页</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<link rel="stylesheet" href="css/area.css">
+		<script type="text/javascript" src="js/zepto.min.js"></script>
+</head>
+<body class="base">
+	<div class="level01">
+		<div class="area">
+			<div class="search">
+				<div class="cover"></div>
+				<input type="text" class="input">
+				<img src="image/icon_search-01.png" class="img">
+			</div>
+			<div class="list">
+				<ul class="leftnav">
+					<li>A</li>
+					<li>B</li>
+					<li>C</li>
+					<li>D</li>
+					<li>E</li>
+					<li>F</li>
+					<li>G</li>
+					<li>H</li>
+					<li>I</li>
+					<li>J</li>
+					<li>K</li>
+					<li>L</li>
+					<li>M</li>
+					<li>N</li>
+					<li>O</li>
+					<li>P</li>
+					<li>Q</li>
+					<li>R</li>
+					<li>S</li>
+					<li>T</li>
+					<li>U</li>
+					<li>V</li>
+					<li>W</li>
+					<li>X</li>
+					<li>Y</li>
+					<li>Z</li>
+				</ul>
+				<ul class="ularea">
+					<li><span class="zm"></span><label>A</label></li>
+					<li>
+						<dt>
+							<dt>
+								<dl>鞍山</dl>
+								<dl>安顺</dl>
+								<dl>安阳</dl>
+								<dl>安丘</dl>
+								<dl>安岳</dl> 
+								<dl>安吉</dl> 
+								<dl>安庆</dl> 
+								<dl>安康</dl>  
+								<dl>阿克苏阿拉善盟</dl> 
+								<dl>阿坝阿勒泰</dl> 
+								<dl>澳门</dl> 
+								<dl>阿里</dl>  
+							</dt>
+						</dt>
+					</li>
+					<li><span class="zm"></span><label>B</label></li>
+					<li>
+						<dt>
+							<dt>
+								<dl>北京</dl>
+								<dl>保定</dl>
+								<dl>包头</dl>
+								<dl>蚌埠</dl>
+								<dl>毕节</dl>
+								<dl>霸州</dl> 
+								<dl>白银</dl>
+								<dl>宝鸡</dl>
+								<dl>本溪</dl>
+								<dl>北流</dl>
+								<dl>鄱阳</dl> 
+								<dl>滨州</dl>
+								<dl>北海</dl>
+								<dl>百色</dl>
+								<dl>滨海</dl>
+								<dl>北碚</dl>
+							</dt> 
+						</dt>
+					</li>
+					<li><span class="zm"></span><label>C</label></li>
+					<li>
+						<dt>
+							<dt>
+								<dl>成都</dl>
+								<dl>重庆</dl>
+								<dl>常州</dl>
+								<dl>长沙</dl>
+								<dl>长春</dl>
+								<dl>常熟</dl> 
+								<dl>长治</dl>
+								<dl>朝阳</dl>
+								<dl>昌邑</dl>
+								<dl>赤峰</dl>
+								<dl>承德</dl> 
+								<dl>长兴</dl>
+								<dl>慈溪</dl>
+								<dl>从化</dl>
+								<dl>沧州</dl>
+								<dl>苍南</dl> 
+								<dl>长葛</dl>
+								<dl>滁州</dl>
+								<dl>常德</dl>
+								<dl>楚雄</dl>
+								<dl>承德县</dl>   
+							</dt>  
+						</dt>
+					</li>
+                    <li><span class="zm"></span><label>D</label></li>
+					<li>
+						<dt>
+							<dt>
+								<dl>东莞</dl>
+								<dl>大连</dl>
+								<dl>大庆</dl>
+								<dl>东营</dl>
+								<dl>德阳</dl>
+								<dl>东港</dl> 
+								<dl>登封</dl>
+								<dl>丹阳</dl>
+								<dl>达州</dl>
+								<dl>定西</dl>
+								<dl>东阳</dl> 
+								<dl>大理</dl>
+								<dl>德清</dl>
+								<dl>德州</dl>
+								<dl>东台</dl>
+								<dl>当阳</dl>  
+							</dt>   
+						</dt>
+					</li>
+                    <li><span class="zm"></span><label>D</label></li>
+					<li>
+						<dt>
+							<dt>
+								<dl>峨眉山</dl>
+								<dl>额尔古纳</dl>
+								<dl>鄂州</dl>
+								<dl>恩施</dl>
+								<dl>鄂尔多斯</dl>   
+							</dt>   
+						</dt>
+					</li>
+
+                    <li><span class="zm"></span><label>D</label></li>
+					<li>
+						<dt>
+							<dt>
+								<dl>福州</dl>
+                                <dl>佛山</dl>
+                                <dl>阜阳</dl>
+                                <dl>抚顺</dl>
+                                <dl>凤城</dl>
+                                <dl>阜康</dl>
+                                <dl>汾阳</dl>
+                                <dl>富阳</dl>
+                                <dl>福清</dl>
+                                <dl>凤凰</dl>  
+							</dt>   
+						</dt>
+					</li> 
+				</ul> 
+			</div>
+		</div>
+		<div style="text-align: center; width:100%;">
+			&nbsp;<span class="footclose" onclick="fixClose()" style="bottom:18px;"></span>
+		</div>    
+	</div>
+<script type="text/javascript">
+	$(function () { 
+	    $("dl").click(function(){
+	    	alert($(this).text());
+	    	window.location.href="outRoom.html";
+	    });
+	    $(".footclose").click(function(){ 
+	    	window.location.href="outRoom.html";
+	    });
+$(".leftnav li:contains(A)").addClass("selected");
+	    var startY = null,endY; 
+		$(".leftnav").live("touchstart",function(){
+			var touch = event.touches[0]; //获取第一个触点   
+	 		startY = Number(touch.pageY); //页面触点X坐标  
+
+		}).live("touchmove",function(){
+			var touch = event.touches[0]; //获取第一个触点   
+			endY = Number(touch.pageY); //页面触点Y坐标    
+	        if (endY - startY < -30) {//向右划    
+	        	var num = $(".level01").scrollTop() + endY - startY;
+	        	num = num < 0 ? 0 :num;
+	        	$(".level01").scrollTop();
+	        }  
+	        else if (endY - startY > 30) {//向左划   
+	        	var num = $(".level01").scrollTop() + endY - startY;
+	        	num = num < 0 ? 0 :num;
+	        	$(".level01").scrollTop(num);
+	        }  
+		}); 
+	});
+</script>
+</body>

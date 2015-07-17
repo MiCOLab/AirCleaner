@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<link rel="stylesheet" href="css/reg.css">
+    <!--<script type="text/javascript" src="js/zepto.min.js"></script>-->
+    <script type="text/javascript" src="js/apis.js" ></script>
+    <script type="text/javascript" src="js/jquery-2.1.3.js" ></script>
+    <script type="text/javascript" src="js/config.js" ></script>
+    <script type="text/javascript" src="js/av-0.5.0.min.js" ></script>
+    <script type="text/javascript" src="js/mico-user-0.1.js" ></script>
+    <script type="text/javascript" src="js/aircleaner.js" ></script>
+</head>
+<body class="base" style="background: #FFFFFF;">
+<div class="level0"> 
+	<div class="center_bar">
+		<div class="header">
+			<img src="image/img_tree-01.png"/>
+		</div>
+		<div class="reg">
+			<div class="p">
+				<input id="txtMobile" placeholder="手机号" class="lblMobile">
+			</div>
+			<div class="p">
+				<input type="password" id="txtpwd" placeholder="密码" class="lblpwd">
+			</div>
+			<div class="p col_60">
+				<input id="txtcode" placeholder="验证码" class="lblcode">
+			</div>
+			<div class="p col_40">
+	            <div id="btnSend" class="vld_btn">发送</div>
+			</div>
+			<div style="clear:both;"></div>
+			<div id="btnSubmit" class="btnReg">注册</div>
+		</div>
+	</div>
+	<div class="foot_bar">
+		<span class="footclose" onclick="fixBack()"></span>  
+	</div>
+</div>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+	function register(phone,password,code,callback) {
+		$mxuser.signUpOrlogInByPhone(phone,code,function (user,errm) {
+			if(user){
+				$mxuser.setPassword(phone,password,app.id, callback);
+			}else{
+				alert(JSON.stringify(errm))
+				callback(null,1)
+			}
+		})
+	}
+	$(function(){
+		$("#btnSubmit").click(function(){
+//			window.location.href="添加用户.html";
+			var phone = $("#txtMobile").val();
+			var pw = $("#txtpwd").val();
+			var code = $("#txtcode").val();
+			$mxuser.isExist(phone,function (ret,err) {
+				if(ret.length == 0){
+					register(phone,pw,code,function (ret,error) {
+						if (ret){
+							app.setUser(ret)
+							api.alert({msg:"注册成功"});
+						}else{
+							alert(JSON.stringify(error))
+							if (error == 1){
+								api.alert({msg:"验证码无效"});
+							}else{
+								api.alert({msg:"保存密码失败"})
+							}
+						}
+						$api.closeFrame();
+					});
+				}else{
+					api.alert({msg:"该手机已经注册"});
+				}
+			})
+			
+		});
+		$("#btnSend").click(function () {
+			var phone = $("#txtMobile").val()
+			$mxuser.isExist(phone,function (ret,err) {
+				if(ret.length == 0){
+					$mxuser.getSmsCode(phone,function (ret) {
+						alert(JSON.stringify(ret));
+					})
+				}else{
+					api.alert({msg:"该手机已经注册"});
+				}
+			})
+		})
+	});
+	function fixBack(){
+		window.location.href="login.html";
+	}
+</script>
+</body>
+</html>

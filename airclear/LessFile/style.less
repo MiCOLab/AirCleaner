@@ -1,0 +1,899 @@
+@charset "utf-8";
+
+html,body{width:100%;height: 100%;overflow: hidden;} 
+@font-face {font-family:mui; src: url("../fonts/mui.ttf")}
+body{font:arial,"\5b8b\4f53",sans-serif,tahoma,"Microsoft YaHei";   text-shadow: initial; font-family:mui }
+.ui-body-a, .ui-overlay-a{ text-shadow: initial;}
+*{margin:0px;  padding: 0px; } 
+
+li{list-style: none;}
+ 
+.box input[type='range']
+{
+    position: relative;
+
+    width: 100%;
+    height: 5px;
+    margin: 17px 0;
+    padding: 0; 
+    border: 0;
+    border-radius: 3px;
+    outline: none;
+    background-color: #999;
+
+    -webkit-appearance: none !important;
+}
+.box input[type='range']::-webkit-slider-thumb
+{
+    width: 20px;
+    height: 20px;
+
+    border-color: #0062cc;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    background-clip: padding-box; 
+    -webkit-appearance: none !important;
+}
+ 
+.welcomebg{ 
+	background: url("../image/bg_level_2-01.png") no-repeat center; 
+	background-size: 100% 100%;   
+	.title{
+		width: 100px;
+		height: 120px;
+		margin: 80px auto 0px; 
+		text-align: center; 
+		font-size: 39.3149px;
+		color: #ffffff;
+	}
+	.version{
+		margin: 10px auto; 
+		width: 100px;
+		color: #ffffff;
+		text-align: center;
+	}
+    .regout{ 
+    	width: 150px;
+    	margin: 0px auto;
+		.reg{
+			width: 150px;
+			height: 130px;  
+			display: inline-block;
+			position: fixed;
+			bottom: 30px; 
+			.tree{
+				width: 150px;
+				margin-left: -10px;
+				height: 100px;  
+				background: url("../image/app_icon-01.png") no-repeat center;  
+				background-size: 150px;
+			}
+			.reginfo{
+				width: 100px;
+				text-align: center;
+				height: 20px;
+				margin: 15PX auto;
+				color: #ffffff;
+			}
+		}  
+    } 
+}
+
+.base{;
+	width: 100%;
+	height: 100%;
+	.level0{//空气良好
+		width: 100%;
+		height: 100%;
+		position: relative;
+		background: url("../image/bg_level_1-01.png")no-repeat center; 
+	    background-size: 100% 100%;   
+		.infoimg{
+			width: 250px;
+			height: 100%; 
+			background: url(../image/bg_img_outdoor_level_1-01.png) no-repeat center; 
+			background-size: 120% 150%;
+		}
+	}
+	//主题
+	.level1{//空气良好
+		width: 100%;
+		height: 100%;
+		background: url("../image/bg_level_2-01.png")no-repeat center; 
+		background-size: 100% 100%;
+		position: relative;
+		.infoimg{
+			width: 100%;
+			height: 100%; 
+			background: url(../image/bg_img_outdoor_level_2-01.png) no-repeat center; 
+			background-size: 120% 150%;
+		}
+	}
+	.level2{//轻度污染
+		width: 100%;
+		height: 100%;
+		background: url("../image/bg_level_3-01.png")no-repeat center; 
+		background-size: 100% 100%;
+		position: relative;
+		.infoimg{
+			width: 100%;
+			height: 100%; 
+			background: url(../image/bg_img_outdoor_level_3-01.png) no-repeat center; 
+			background-size: 120% 150%;
+		} 
+	}
+	.level3{//中度污染
+		width: 100%;
+		height: 100%;
+		background: url("../image/bg_level_4-01.png")no-repeat center; 
+		background-size: 100% 100%;
+		position: relative;
+		.infoimg{
+			width: 100%;
+			height: 100%; 
+			background: url(../image/bg_img_outdoor_level_4-01.png) no-repeat center; 
+			background-size: 120% 150%;
+		}
+	}
+	.level4{//重度污染
+		width: 100%;
+		height: 100%;
+		background: url("../image/bg_level_5-01.png")no-repeat center; 
+			background-size: 120% 150%;
+		position: relative;
+		.infoimg{
+			width: 100%;
+			height: 100%; 
+			background: url(../image/bg_img_outdoor_level_5-01.png) no-repeat center; 
+			background-size: 120% 150%;
+		}
+	} 
+	.level5{//睡眠
+		width: 100%;
+		height: 100%;
+		background: url("../image/bg_sleep-01.png")no-repeat center; 
+			background-size: 120% 150%;
+		position: relative;
+		.infoimg{
+			width: 100%;
+			height: 100%; 
+			background: url(../image/bg_img_indoor_sleep-01.png) no-repeat center; 
+			background-size: 120% 150%;
+		}
+	} 
+	//头部
+	.header{
+		width: 100%;
+		height: 36px;
+		padding: 18px;
+		.border{border: 1px solid #fff;border-radius: 3px; width: 100%;height:100%; opacity: 0.3;}
+		.lf{//头部-左
+			width: 28%;
+			height: 100%;
+			float: left; 
+			.op{
+				width: 36px;
+				height: 36px;
+				background: url("../image/icon_more-01.png") no-repeat center;
+				background-size: 26px 26px  ;  
+				display: block; 
+			}
+		}
+		.lc{//头部-中
+			width: 33%;
+			height: 100%; 
+			margin: 0px auto;
+			float: left;;
+			text-align: center; 
+			.dingwei{
+				width: 150px;
+				height: 36px;  
+				display:inline-block;
+				margin: auto; 
+				text-align: left; 
+				background: url("../image/icon_location-01.png") no-repeat 7px 5px;  
+				background-size: 26px 26px  ;  
+				color: #fff;
+				font-size: 18pt; 
+				.txt{ 
+					width: 150px;
+					height: 36px; 
+					overflow: hidden; text-overflow:ellipsis;
+					 white-space :nowrap ; 
+ 					margin:0px 0px 0px 30px;
+				}
+			}
+			 
+		}
+		.lr{//头部-右
+			width: 32%;
+			height: 100%;
+			float: left;; 
+		}
+	} 
+	//室外-详细
+	.detail{
+		width: 320px;
+		height: 280px;
+		margin: 10px auto;
+		.ctext{
+			width: 200px;
+			height: 132px;
+			margin: 10px auto 30px;
+			color: #fff; 
+			text-align: center;
+			.num{ 
+				width: 100%;
+				height: 120px;
+				font-size: 72pt; 
+				letter-spacing:3px;
+				.lrup{  
+					height: 25px;
+					font-size: 16pt; 
+					position: absolute;
+					margin:25px 0px 0px -7px;
+				}
+			}
+			.infotext{
+				width: 130px;
+				font-size: 30px;
+				margin: 0px auto 15px;
+			}
+		}
+		//室外详细-数字详细
+		.detailnum{
+			width: 100%;
+			height: 100px; 
+			color: #fff;
+			li{
+				float: left;;
+				text-align: center;
+				width: 33%;
+				height: 60px;
+				font-size: 20pt;
+				p{
+					font-size: 12pt;
+					opacity: 0.8; 
+					margin: -2px 0px 0px 5px;
+					height: 15px;
+				} 
+			}
+			.line1,.line2{
+				width: 100%;
+				height: 30%; 
+			}
+			.line3{
+				width: 100%;
+				height: 30px;
+				margin: 0px auto;
+				clear: left;
+				text-align: center;;
+				opacity: 0.8; 
+				font-size: 11pt;
+			}
+		} 
+	}
+	.footclose{
+			width: 18px;
+			height: 18px;   
+			display: inline-block;
+			margin-left: -13px;
+			position: absolute;
+			bottom: 80px;
+			background: url(../image/icon_cancel-01.png) no-repeat; 
+			background-size: 18px 18px;
+	}
+	.bottomHome{
+		width: 120px;
+		height: 48px;  
+		left: 50%; 
+		margin-left:-65px;
+		position: absolute; 
+		bottom: 0px;
+		.opacity{
+			opacity: 0.1; 
+			background-color: #000000;
+			width: 100%;
+			height: 100%; 
+			border-radius: 10px 10px 0px 0px; 
+		}
+		.bg{ 
+			width:25px;
+			height:25px; 
+			margin: -38px 0px 0px 52px;
+			position: absolute;
+		 	background: url(../image/icon_house-01.png) no-repeat;
+		 	background-size: 25px 25px; 
+		}
+	}
+	 
+	//室外-主页
+	.outdoor{
+		width: 250px;
+		height: 200px;
+		margin: 0px auto; 
+		.infotext{
+			width: 100%; 
+			height: 100px; 
+			font-size: 36pt;
+			color: #fff;
+			text-align: center; 
+			img{
+				width: 20px;
+				height: 20px;
+				border:0px; 
+				position: absolute;  
+			}
+			.num{
+				label{font-size: 14pt;opacity: 0.7;}
+				span{font-size: 22pt;}
+			}
+		}
+	}
+	//设置
+	.setbase{
+		width: 300px;
+		height: 350px;
+		margin: 50px auto 0px;
+		.infoimg{
+			width: 100px; 
+			height: 120px; 
+			margin: auto;
+			background: url(../image/icon_setting-01.png) no-repeat center; 
+			background-size: 100% 100%;
+		}
+		.infotext{
+			margin: 50px auto 0px;
+			width: 250px; 
+			height: 100%; 
+			font-size: 20pt;
+			color: #fff;  
+			li{height: 54px;}
+			.line{
+				border: 1px solid #000000;
+				opacity: 0.2;
+				margin-top: 5px;
+			}
+			.huadong{
+				width: 36px;
+				height: 18px;
+				background-color: #000000;
+				border-radius: 2px;
+				font-size: 10pt;
+				line-height: 18px;
+				padding: 2px;
+				opacity: 0.1;
+				display:inline-block;
+				float:right;
+				margin: 5px 10px 0px 0px;
+				label{
+					width: 18px;
+					height: 18px; 
+					background-color: #9b9b9b;
+					border-radius: 2px;
+					float: left;;
+				}
+				i{  font-style: inherit; margin-left: 2px;line-height: 18px;}
+			}
+			.lefttext{
+				width: 16px;
+				height: 18px; 
+				padding: 2px;  
+				float:right;
+				margin: -3px 10px 0px 0px;
+				opacity: 0.5;
+			}
+		}
+		.txtmsg{ 
+			margin-top: 30px;
+			height:235px; 
+			textarea{ 
+				width: 100%;
+				height:140px;  
+				opacity: 0.4;
+			}
+			button{ 
+				margin-top: 20px;
+				height: 30px; 
+				width: 100%;
+				background-color: #9b9b9b;
+				color: #fff;
+				border-radius: 5px;
+				opacity: 0.6;
+			}
+		}
+	}
+	.oplist{
+		width: 240px;
+		height: 300px;
+		margin: 80px auto 0px;
+		li{
+			padding: 32px 12px 32px 60px;
+			line-height: 32px;
+			img{width: 32px; height: 32px; border:0px;float: left;}
+			span{ margin-left: 22px;font-size: 16pt; color: #fff;float: left; }
+			clear: left;
+		}
+	}
+	//对话框
+	.dialog{
+		width: 100%;
+		height: 100%;
+		position: absolute;; 
+		left:0px;
+		top:0px;
+		z-index: 99; 
+		display: none;
+		.cover{
+			width: 100%;
+			height: 100%;
+			background-color: #b4b4b4;
+			opacity: 0.4;
+		}
+		.myform{
+			background-color: #fff;
+			width: 255px;
+  			height: 130px;
+			position: absolute;; 
+			top:40%;
+			left:40%;
+			z-index: 111;
+			border-radius: 5px; 
+			color: #A49FA2;
+			.inputarea{
+				width: 100%;
+				padding: 20px; 
+			} 
+			input{ margin-top: 5px; padding: 5px; border-radius: 5px; border:1px solid #ccc; width: 200px;}
+			.buttondiv{
+				 border-top:1px solid #ccc;
+				 border-radius: 5px;
+				 span{ background-color: transparent; border:0px; width: 124px; float: left;text-align: center; line-height: 39px;} 
+				 span:hover{color: rgb(97,179,244);
+				}
+				.line{border-left:1px solid #ccc;float: left; height: 37px;width: 0px;}
+			}
+		}
+		.mypwd{
+			background-color: #fff;
+			width: 255px;
+  			height: 162px;
+			position: absolute;; 
+			top:40%;
+			left:40%;
+			z-index: 111;
+			border-radius: 5px; 
+			color: #A49FA2;
+			.inputarea{
+				width: 100%;
+				padding: 20px; 
+			} 
+			input{ margin-top: 5px; padding: 5px; border-radius: 5px; border:1px solid #ccc; width: 200px;}
+			.buttondiv{
+				width: 255px;
+				height: 39px;
+				 border-top:1px solid #ccc;
+				 margin-top: -2px; 
+				 span{ background-color: transparent; border:0px; width: 124px; float: left;text-align: center; line-height: 37px;} 
+				 span:hover{
+					color: rgb(97,179,244);
+				}
+				.line{border-left:1px solid #ccc;float: left; height: 38px;width: 0px;}
+			}
+		} 
+	}
+	.resetpwd{ 
+		margin-top: 50px;
+		.img{
+			width: 50px;
+			height: 50px;
+			margin: 0px auto;
+			img{ width: 100%;height: 100%; border:0px;}
+		}
+	 .txt{
+	 	width: 250px;
+	 	margin: 50px auto;
+	 	font-size: 14pt;
+		color: #fff;  
+	 	li{height: 44px;}
+			.line{
+				border: 1px solid #000000;
+				opacity: 0.2;
+				margin-top: 5px;
+			}
+			.sj{
+				width: 108px;
+				height: 18px;  
+				padding: 2px;
+				opacity: 0.7; 
+				font-size: 12pt;
+				display:inline-block;
+				float:right;
+				margin: -3px 0px 0px 0px;
+				label{
+					width: 18px;
+					height: 18px;
+					background-color: #9b9b9b;
+					border-radius: 2px;
+					float: left;;
+				}
+			}
+			.lefttext{
+				width: 16px;
+				height: 18px; 
+				padding: 2px;  
+				float:right;
+				margin: -3px 10px 0px 0px;
+				opacity: 0.5;
+			}
+	 }
+	}
+}
+//室内
+.basein{
+	width:100%;
+	height: 100%; 
+	.level0{//空气良好
+		width: 100%;
+		height: 100%;
+		background: url("../image/bg_level_1-01.png")no-repeat center; 
+		background-size: 100% 100%;
+		position: relative;
+		.infoimg{
+			width: 100%;
+			height: 100%; 
+			background: url(../image/bg_img_indoor_level_1-01.png) no-repeat center; 
+			background-size: 130% 150%;
+		}
+	}
+	.level1{//空气清新
+		width: 100%;
+		height: 100%;
+		background: url("../image/bg_level_2-01.png")no-repeat center; 
+		background-size: 100% 100%;
+		position: relative;
+		.infoimg{
+			width: 100%;
+			height: 100%; 
+			background: url(../image/bg_img_indoor_level_2-01.png) no-repeat center; 
+			background-size: 130% 150%;
+		}
+	}
+	.level2{//轻度污染
+		width: 100%;
+		height: 100%;
+		background: url("../image/bg_level_3-01.png")no-repeat center; 
+		background-size: 100% 100%;
+		position: relative;
+		.infoimg{
+			width: 100%;
+			height: 100%; 
+			background: url(../image/bg_img_indoor_level_3-01.png) no-repeat center; 
+			background-size: 130% 150%;
+		} 
+	}
+	.level3{//中度污染
+		width: 100%;
+		height: 100%;
+		background: url("../image/bg_level_4-01.png")no-repeat center; 
+		background-size: 100% 100%;
+		position: relative;
+		.infoimg{
+			width: 100%;
+			height: 100%; 
+			background: url(../image/bg_img_indoor_level_4-01.png) no-repeat center; 
+			background-size: 130% 150%;
+		}
+	} 
+	.level4{//睡眠
+		width: 100%;
+		height: 100%;
+		background: url("../image/bg_level_5-01.png")no-repeat center; 
+			background-size: 130% 150%;
+		position: relative;
+		.infoimg{
+			width: 100%;
+			height: 100%; 
+			background: url(../image/bg_img_indoor_level_5-01.png) no-repeat center; 
+			background-size: 130% 150%;
+		}
+	}
+	.level5{//睡眠
+		width: 100%;
+		height: 100%;
+		background: url("../image/bg_sleep-01.png")no-repeat center; 
+			background-size: 130% 150%;
+		position: relative;
+		.infoimg{
+			width: 100%;
+			height: 100%; 
+			background: url(../image/bg_img_indoor_sleep-01.png) no-repeat center; 
+			background-size: 130% 150%;
+		}
+	} 
+	.header{ 
+		width: auto;
+		height: 36px; 
+		padding: 18px;  
+		.border{border: 1px solid #fff;border-radius: 3px; width: 100%;height: 100%;  opacity: 0.3;}
+		.lf{
+			width: 40px;
+			height: 36px; 
+			float: left;
+			.op{
+				width: 36px;
+				height: 36px;
+				background: url("../image/icon_more-01.png") no-repeat center;  
+				background-size: 26px 26px;
+				display: block; 
+			}
+		}
+		.lc{
+			width: 120px;
+			min-width: 90px;
+			height: 36px;  
+			text-align: center;  
+			margin-left: -65px ; 
+			position: absolute;
+			left: 50%; 
+			.dingwei{
+				width: 100%;
+				height: 36px;   
+				margin: 0px auto; 
+				text-align: left; 
+				background: url("../image/icon_house-01.png") no-repeat 7px 5px;  
+				background-size: 26px 26px;
+				color: #fff;
+				font-size: 18pt; 
+				.txt{
+					line-height: 36px;
+ 					position: absolute;;
+ 					margin:-35px 0px 0px 38px; 
+				}
+			}
+			 
+		}
+		.lr{
+			width:55px;
+			min-width: 55px;
+			height: 36px; 
+			padding-top: 3px;   
+			float: right;
+			.btnArea{  
+				padding:2px;
+				width: 50px;
+				height: 25px;
+				line-height: 25px;
+				opacity: 0.7; 
+				border-radius: 5px;
+				border: 1px #fff solid;
+				color: #fff;
+				label{ float: right;padding:0px 3px 1px 3px;height: 25px; line-height: 25px; font-size: 14pt;}
+				span{ float: left; width: 6px; height: 23px;background-color: #fff;border-radius: 3px;}  
+			}
+			.sd{
+					label{ float: left;}
+					span{ float:right ;}
+			} 
+		} 
+		
+	}
+		//室内
+	.indoor{
+		width: 250px;
+		height: 180px;
+		margin: 0px auto 0px; 
+		.infotext{
+			width: 100%; 
+			height: 100px; 
+			margin-left: -10px;
+			font-size: 36pt;
+			color: #fff;
+			text-align: center; 
+			img{
+				width: 30px;
+				height: 30px;
+				border:0px; 
+				position: absolute;  
+			}
+			.num{
+				label{font-size: 14pt; opacity: 0.7;}
+				span{font-size: 22pt;}
+			}
+		}
+	} 
+	.bottomHomeZd{  
+		position: absolute; 
+		height: 72px;
+		width: 100%;
+		bottom: 0px; 
+		.outcontent{
+			width: 200px;
+			height: 72px;     
+			position: relative;
+			left:50%;
+			margin-left: -100px;
+			.opacity{
+				opacity: 0.1; 
+				background-color: #000000;
+				width: 100%;
+				height: 100%;   
+				border-radius: 10px 10px 0px 0px; 
+			}
+			.img1{ 
+				width:72px;
+				height:72px; 
+				margin: -75px 0px 0px 20px;
+				position: absolute;; 
+			}
+			.img2{ 
+				width:72px;
+				height:72px; 
+				margin: -75px 0px 0px 110px;
+				position: absolute;;
+			}
+		} 
+		.show{
+			display: inline-block;
+		}
+	} 
+	.bottomCtrlSd{ 
+		width: 100%;
+		height: 140px;  
+		position: absolute; 
+		display: none;
+		bottom: 0px;
+		.cover{
+			background-color: #000000;
+			opacity: 0.1;
+			width: 100%;
+			height: 100%;
+			display: inline-block;
+		} 
+		.box{
+			width: 290px;
+			height: 140px;     
+			position: absolute;
+			margin:-140px 0px 0px -145px;   
+			left:50%;
+			p{height: 55px;line-height: 55px;}
+			.sprang{ margin-top:-30px; } 
+			#fj{
+				position:absolute;
+			    width: 210px;
+			  	height: 5px;
+			 	margin: 31px 0;
+			 	padding: 0; 
+			  	border: 0;
+				border-radius: 2px;
+			 	outline: none; 
+			 	opacity: 0.7;
+			 	background-color: #999;
+  				-webkit-appearance: none !important;
+			 }
+			.img1{ 
+				width:65px;
+				height:65px;   
+
+			}
+			.img2{ 
+				width:65px;
+				height:65px; 
+				margin: -75px 0px 0px 100px; 
+			}
+			.lblDingShi{
+				width: 50px;
+				height: 20px;
+				line-height: 20px;
+				text-align: center;
+				display: inline-block; 
+				font-size: 10px;
+				opacity: 0.2;
+				color: #fff;
+				background-color: #000000;
+				border-radius: 5px;
+				margin-left: 230px;
+			}
+		} 
+	}
+	.selectDevice{
+ 		width: 300px; 
+ 		margin:100px auto;
+ 		color: #fff;
+		text-align: center; 
+		ul{height: 90px;}
+ 		li{
+ 			float: left;
+ 			margin-left:2px;
+ 			width: 90px;height: 80px; 
+ 			opacity: 0.8;
+ 			.img{
+ 				width: 90px;height: 80px; 
+ 				margin:0px auto  10px;
+ 				background: url(../image/device_logo02-01.png) no-repeat center;
+ 				background-size: 80px 80px;
+ 			}
+ 		}
+ 		.on{
+ 			opacity: 1;
+			.img{
+				width: 90px;height: 80px; 
+				background: url(../image/device_logo01-01.png) no-repeat center;
+				background-size: 90px 80px;
+			}
+		}
+ 		.selected{
+ 			clear: left;
+ 			width: 28px;
+ 			margin:35px auto 0px;  
+ 			img{ margin-left: 8px; width: 20px;}  
+ 		} 
+	}
+	//对话框
+	.dialog{
+		width: 100%;
+		height: 100%;
+		position: absolute;; 
+		left:0px;
+		top:0px;
+		z-index: 99; 
+		display: none;
+		.cover{
+			width: 100%;
+			height: 100%;
+			background-color: #b4b4b4;
+			opacity: 0.4;
+		}
+		.myform{
+			background-color: #fff;
+			width: 255px;
+  			height: 130px;
+			position: absolute;; 
+			top:40%;
+			left:40%;
+			z-index: 111;
+			border-radius: 5px; 
+			color: #A49FA2;
+			.inputarea{  
+				width: 100%;
+				padding: 20px; 
+			} 
+			input{ margin-top: 5px; padding: 5px; border-radius: 5px; border:1px solid #ccc; width: 200px;}
+			.buttondiv{
+				 width: 255px;
+				 border-top:1px solid #ccc; 
+				 span{ background-color: transparent; border:0px; width: 124px; float: left; text-align: center; line-height: 37px;} 
+				 span:hover{
+					color: rgb(97,179,244);
+				}
+				.line{border-left:1px solid #ccc;float: left; height: 38px;width: 0px;}
+			}
+		}
+		.mypwd{
+			background-color: #fff;
+			width: 205px;
+  			height: 142px;
+			position: absolute;; 
+			top:40%;
+			left:40%;
+			z-index: 111;
+			border-radius: 5px; 
+			color: #A49FA2;
+			.inputarea{
+				width: 100%;
+				padding: 10px; 
+			} 
+			input{ margin-top: 5px; padding: 5px; border-radius: 5px; border:1px solid #ccc;}
+			.buttondiv{
+				 border:1px solid #ccc;
+				 border-radius: 5px;
+				 span{ background-color: transparent; border:0px; width: 100px; float: left; text-align: center; line-height: 42px;} 
+				 span:hover{
+					color: rgb(97,179,244);
+				}
+				.line{border-left:2px solid #ccc;float: left; height: 39px;width: 0px;}
+			}
+		} 
+	}
+
+}

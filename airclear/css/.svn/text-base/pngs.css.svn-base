@@ -1,0 +1,60 @@
+/* ----------------------------------------------------
+   created with http://www.codeandweb.com/texturepacker 
+   ----------------------------------------------------
+   $TexturePacker:SmartUpdate:3bd5e56fb9a01e12ef2ce451bf1c97cb:1/1$
+   ----------------------------------------------------
+
+   usage: <span class="{-spritename-} sprite"></span>
+
+   replace {-spritename-} with the sprite you like to use
+
+*/
+
+.sprite {display:inline-block; overflow:hidden; background-repeat: no-repeat;background-image:url(pngs.png);}
+
+.bg_img_indoor_level_2-01.svg {width:320px; height:380px; background-position: -462px -2px}
+.bg_img_indoor_level_5-01.svg {width:320px; height:380px; background-position: -2px -384px}
+.bg_img_outdoor_level_2-01.svg {width:320px; height:380px; background-position: -2px -2px}
+.bg_img_outdoor_level_5-01.svg {width:320px; height:380px; background-position: -2px -384px}
+.control_air_volume-01.svg {width:72px; height:72px; background-position: -420px -825px}
+.control_air_volume_slider-01.svg {width:18px; height:18px; background-position: -272px -914px}
+.control_fresh_off-01.svg {width:72px; height:72px; background-position: -350px -751px}
+.control_fresh_on-01.svg {width:72px; height:72px; background-position: -374px -914px}
+.control_power_off-01.svg {width:72px; height:72px; background-position: -346px -840px}
+.control_power_on-01.svg {width:72px; height:72px; background-position: -300px -914px}
+.control_sleep_off-01.svg {width:72px; height:72px; background-position: -276px -766px}
+.control_sleep_on-01.svg {width:72px; height:72px; background-position: -272px -840px}
+.control_timer_off-01.svg {width:72px; height:72px; background-position: -202px -766px}
+.control_timer_on-01.svg {width:72px; height:72px; background-position: -226px -934px}
+.device_introduce-01.svg {width:320px; height:365px; background-position: -324px -384px}
+.device_logo01-01.svg {width:108px; height:94px; background-position: -2px -766px}
+.device_logo02-01.svg {width:88px; height:76px; background-position: -182px -856px}
+.expression_indoor_level_1-01.svg {width:54px; height:54px; background-position: -474px -955px}
+.expression_indoor_level_2-01.svg {width:54px; height:54px; background-position: -448px -899px}
+.expression_indoor_level_3-01.svg {width:54px; height:54px; background-position: -480px -751px}
+.expression_indoor_level_4-01.svg {width:54px; height:54px; background-position: -424px -751px}
+.expression_indoor_level_5-01.svg {width:54px; height:54px; background-position: -170px -952px}
+.expression_outdoor_level_1-01.svg {width:54px; height:54px; background-position: -474px -955px}
+.expression_outdoor_level_2-01.svg {width:54px; height:54px; background-position: -448px -899px}
+.expression_outdoor_level_3-01.svg {width:54px; height:54px; background-position: -114px -952px}
+.expression_outdoor_level_4-01.svg {width:54px; height:54px; background-position: -58px -952px}
+.expression_outdoor_level_5-01.svg {width:54px; height:54px; background-position: -2px -952px}
+.icon_account-01.svg {width:32px; height:32px; background-position: -402px -988px}
+.icon_cancel-01.svg {width:24px; height:24px; background-position: -540px -849px}
+.icon_confirm-01.svg {width:24px; height:24px; background-position: -540px -823px}
+.icon_device_add-01.svg {width:32px; height:32px; background-position: -368px -988px}
+.icon_device_authorize-01.svg {width:32px; height:32px; background-position: -334px -988px}
+.icon_house-01.svg {width:24px; height:24px; background-position: -540px -797px}
+.icon_info-01.svg {width:24px; height:24px; background-position: -530px -997px}
+.icon_location-01.svg {width:24px; height:24px; background-position: -530px -971px}
+.icon_message-01.svg {width:44px; height:44px; background-position: -504px -899px}
+.icon_more-01.svg {width:24px; height:24px; background-position: -530px -945px}
+.icon_password-01.svg {width:44px; height:44px; background-position: -536px -751px}
+.icon_phone-01.svg {width:44px; height:44px; background-position: -494px -853px}
+.icon_search-01.svg {width:24px; height:24px; background-position: -448px -955px}
+.icon_setting-01.svg {width:32px; height:32px; background-position: -300px -988px}
+.icon_warning-01.svg {width:24px; height:24px; background-position: -436px -988px}
+.icon_wifi-01.svg {width:44px; height:44px; background-position: -494px -807px}
+.img_house-01.svg {width:88px; height:88px; background-position: -112px -766px}
+.img_router-01.svg {width:88px; height:88px; background-position: -92px -862px}
+.img_tree-01.svg {width:88px; height:88px; background-position: -2px -862px}

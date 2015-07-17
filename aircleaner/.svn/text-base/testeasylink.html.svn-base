@@ -1,0 +1,95 @@
+<!DOCTYPE html>rror
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+    <script type="text/javascript" src="js/jquery-2.1.3.js" ></script>
+    <script type="text/javascript" src="js/jquery.md5.js" ></script>
+    <script type="text/javascript" src="js/mico-bind-0.1_r.js" ></script>
+    <script type="text/javascript" src="js/mico-user-0.1.js" ></script>
+</head>
+<body>
+	<header></header>
+	<div class="mui-content" style="margin-top: 25px;">
+		<button onclick="getssid()" >获取wifissid</button>
+		<button onclick="getDeivce()" >获取设备</button>
+		<button onclick="getDeivceId()" >获取设备id</button>
+		<button onclick="bindapp">绑定</button>
+		<button onclick="reload()">重新加载</button>
+		
+	</div>
+	<script type="text/javascript">
+		var ssid = "";
+		var devip="192.168.2.36";
+		var devId = "d64f517c/c89346918185";
+		var userToken = "35cb4e93-65a6-4bd7-a7c0-e2d5d42af638";
+		var appId = "b2e89f92-620c-4c8b-a80c-3078efbda53d";
+		function getssid () {
+			var wifissid = api.require('wifiSsid');
+			wifissid.getSsid(function(ret, err) {
+				if (ret.ssid) {
+					ssid = ret.ssid;
+				    api.alert({msg:ret.ssid});
+				}else{
+				    api.alert({msg:err.msg});
+				}
+			});
+		}
+		
+		function getDeivceId() {
+			$mico.getDevid(devip,"1234",getDevToken(),function (ret,error) {
+				if (ret){
+					devId = ret.device_id;
+					alert(JSON.stringify(ret));
+				}else{
+					alert(JSON.stringify(error));
+				}
+				
+			})
+		}
+		
+		function getDeivce () {
+			alert("use devipme ssid:"+ssid);
+			var devipme = api.require('micoBind');
+			var psw = "88888888";
+			devipme.getDevip({
+			    wifi_ssid : ssid,
+			    wifi_password : psw
+			}, function(ret, err) {
+				alert("rest");
+			    if (ret.devip) {
+			    		devip = ret.devip;
+			        api.alert({msg:ret.devip});
+			    }else{
+			        api.alert({msg:'error'});
+			    }
+			});
+		}
+		
+		function bindapp(){
+			$mico.bindDevCloud(appId, userToken, getDevToken(), function(ret,error){
+				alert(JSON.stringify(ret));
+				alert(JSON.stringify(error));
+			});
+		}
+		
+		function reload(){
+			api.openWin({
+				url:"testeasylink.html",
+				name:"easylink",
+				reload:true
+			});
+		}
+		
+		function getDevToken() {
+			return $.md5(devip + userToken);
+		}
+	</script>
+</body>
+</html>

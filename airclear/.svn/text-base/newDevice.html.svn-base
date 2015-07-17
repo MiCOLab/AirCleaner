@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>添加设备</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<link rel="stylesheet" href="css/machine.css">
+	<!--<script type="text/javascript" src="js/zepto.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery-2.1.3.js" ></script>
+	<script type="text/javascript" src="js/config.js" ></script>
+	<script type="text/javascript" src="js/av-0.5.0.min.js" ></script>
+	<script type="text/javascript" src="js/mico-user-0.1.js" ></script>
+	<script type="text/javascript" src="js/mico-bind-0.1.js" ></script>
+	<script type="text/javascript" src="js/apis.js" ></script>
+	<script type="text/javascript" src="js/aircleaner.js" ></script>
+</head>
+<body class="base">
+<div class="level0">
+	<div class="center_bar">
+		<div class="header"> 
+			<img src="image/img_house-01.png">
+		</div>
+		<div class="reg">
+			<div class="p"> 
+				<input id="txtWiFi" placeholder="设备名称" class="cen_txt">
+			</div>
+			<div id="btnSubmit" class="btnReg">确认</div>
+		</div> 
+	</div>
+	<div class="foot_bar">
+		<span class="footclose"></span>  
+	</div>
+</div>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript"> 
+$("#btnSubmit").click(function(){
+	var config = $api.getStorage("devConfig");
+	$api.wait("...")
+	$mico.editDevName(app.id,config.userToken,$("#txtWiFi").val(),config.device_id,function (ret,err) {
+		$api.hideWait();
+		var msg = "设置失败";
+		if (ret){
+			msg = "设置成功";
+		}else{
+//			msg = err.msg;
+		}
+		api.alert({msg:msg},function () {
+			api.sendEvent({
+			    name: 'autoStart',
+			    extra: config
+			});
+			$api.closeFrame();
+		})
+	})
+});
+//
+$(".footclose").click(function(){
+	api.sendEvent({
+	    name: 'autoStart',
+	    extra: config
+	});
+	$api.closeFrame();
+//	$api.close();
+//			window.location.href = "添加用户.html";
+});
+apiready=function () {
+//	alert(JSON.stringify($api.getStorage("devConfig")))
+}
+	
+</script>
+</body> 
+</html>

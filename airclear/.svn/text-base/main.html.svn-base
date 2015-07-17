@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<script type="text/javascript" src="js/mui.min.js" ></script>
+		<script type="text/javascript" src="js/apis.js" ></script>
+		<style>
+			input, button, .mui-btn {
+				margin-top: 10px;
+				margin-left: 10px;
+			}
+		</style>
+	</head>
+
+	<body style="padding-top: 25px;">
+		<header class="mui-bar mui-bar-nav" style="margin-top: 25px;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="onBack()"></a>
+			<h1 class="mui-title">普通按钮</h1>
+		</header>
+		<div class="mui-content">
+			<button type="button" onclick="showEasylink()">easylink</button>
+			<button type="button" onclick="appStart()">主页面</button>
+			<button type="button" onclick="$api.open('index.html')">室内</button>
+			<button type="button" onclick="$api.open('inRoom.html')">新室内</button>
+			<button type="button" onclick="$api.open('mqqttComands.html')">控制</button>
+			<button type="button" onclick="$api.open('searchDev.html')">搜设备</button>
+			<button type="button" onclick="$api.open('register.html')">注册页</button>
+			<button type="button" onclick="clearCaches()">清除缓存</button>
+			<button type="button" onclick="$api.clearStorage()">清除数据</button>
+			<button type="button" onclick="$api.open('addUser.html')">帐户</button>
+		</div>
+		</body>
+	<script>
+		function appStart () {
+			$api.open("outDoor.html")
+		}
+		
+		function onBack () {
+			api.closeWin();
+		}
+		
+		function showEasylink () {
+			api.openWindow("testeasylink.html",'easylink');
+		}
+		
+		function clearCaches () {
+			api.confirm({
+			    title: '清除缓存',
+			    msg: '清除缓存',
+			    buttons:['确定', '取消']
+			},function(ret,err){
+			    if(ret.buttonIndex == 1){
+					api.clearCache();
+			    }
+			});
+		}
+	</script>
+</html>

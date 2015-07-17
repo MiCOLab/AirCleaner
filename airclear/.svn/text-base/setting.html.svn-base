@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>设置</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<link rel="stylesheet" href="css/style_2.css">
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript" src="js/apis.js" ></script>
+</head>
+<body class="base">
+<div class="level5">
+	<div class="setbase">
+		<div class="infoimg"></div>
+	 	<ul class="infotext">
+			<li>
+                每日推送
+                <div class="huadong" onclick="fixTrunOnOff()">
+                    <div class="set-hua"></div>
+                </div>
+            </li>
+			<li class="icon_right">
+				当前版本
+				<span class="banben">1.0</span>
+			</li>
+			<li onclick="fixDetails" class="icon_right">
+				给我们提建议
+			</li>
+	 	</ul> 
+	</div>
+	<div class="foot_bar">
+		<span class="footclose" onclick="fixClose()"></span>
+	</div>   
+</div>
+<script type="text/javascript">
+	function fixClose (argument) {
+		$api.close();
+	}
+	function fixDetails (argument) {
+		$api.open("feedback.html");
+	}
+	function fixTrunOnOff(){
+	    if ($('.huadong .set-hua').hasClass('on')) {
+	        $('.huadong .set-hua').removeClass('on') 
+		} else {
+	        $('.huadong .set-hua').addClass('on') 
+		}
+	}
+</script>
+</body>
+</html>

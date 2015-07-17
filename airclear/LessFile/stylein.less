@@ -1,0 +1,339 @@
+@charset "utf-8";
+
+html,body{width:100%;height: 100%;overflow: hidden;} 
+body{font:arial,"\5b8b\4f53",sans-serif,tahoma,"Microsoft YaHei";}
+*{margin:0px;  padding: 0px; }
+@font-face {font-family:mui; src: url("../fonts/mui.ttf")} 
+li{list-style: none;}
+  
+.base{
+	 .level0{//空气良好
+		width: 100%;
+		height: 100%;
+		background: url("../SVG/bg_level_2-01.svg") no-repeat center;  
+		.infoimg{
+			width: 225px;
+			height: 100%; 
+			background: url(../svg/bg_img_indoor_level_2-01.svg) no-repeat center; 
+		}
+	}
+	.level1{//空气清新
+		width: 100%;
+		height: 100%;
+		background: url("../SVG/bg_level_1-01.svg") no-repeat center;  
+		.infoimg{
+			width: 225px;
+			height: 100%; 
+			background: url(../svg/bg_img_indoor_level_1-01.svg) no-repeat center; 
+		}
+	}
+	.level2{//轻度污染
+		width: 100%;
+		height: 100%;
+		background: url("../SVG/bg_level_3-01.svg") no-repeat center; 
+		.infoimg{
+			width: 225px;
+			height: 100%; 
+			background: url(../svg/bg_img_indoor_level_3-01.svg) no-repeat center; 
+		} 
+	}
+	.level3{//中度污染
+		width: 100%;
+		height: 100%;
+		background: url("../SVG/bg_level_4-01.svg") no-repeat center;  
+		.infoimg{
+			width: 225px;
+			height: 100%; 
+			background: url(../svg/bg_img_indoor_level_4-01.svg) no-repeat center; 
+		}
+	}
+	.level4{//重度污染
+		width: 100%;
+		height: 100%;
+		background: url("../SVG/bg_level_5-01.svg") no-repeat center;  
+		.infoimg{
+			width: 225px;
+			height: 100%; 
+			background: url(../svg/bg_img_indoor_level_5-01.svg) no-repeat center; 
+		}
+	}
+	.level4{//睡眠
+		width: 100%;
+		height: 100%;
+		background: url("../SVG/bg_sleep-01.svg") no-repeat center;  
+		.infoimg{
+			width: 225px;
+			height: 100%; 
+			background: url(../svg/bg_img_indoor_sleep-01.svg) no-repeat center; 
+		}
+	}
+	.header{
+		width: 100%;
+		height: 36px;
+		padding: 18px;
+		.border{border: 1px solid #fff;border-radius: 3px; width: 100%;height: 100%;  opacity: 0.3;}
+		.lf{
+			width: 30%;
+			height: 100%;
+			float: left; 
+			.op{
+				width: 36px;
+				height: 36px;
+				background: url("../SVG/icon_more-01.svg") no-repeat center;  
+				display: block;
+				cursor: pointer; 
+			}
+		}
+		.lc{
+			width: 33%;
+			height: 100%; 
+			float: left;;
+			text-align: center; 
+			.dingwei{
+				width: 110px;
+				height: 36px;  
+				display:inline-block;
+				margin: auto; 
+				text-align: left; 
+				background: url("../SVG/icon_house-01.svg") no-repeat 7px 1px;  
+				color: #fff;
+				font-size: 18pt; 
+				.txt{
+ 					position: absolute;;
+ 					margin:-32px 0px 0px 45px;
+ 					cursor: pointer;
+				}
+			}
+			 
+		}
+		.lr{
+			width: 32%;
+			min-width: 48px;
+			height: 100%; 
+			padding-top: 6px;
+			float: left;
+			.btnArea{ 
+				float: right;
+				padding:2px;
+				width: 48px;
+				height: 19px;
+				opacity: 0.7;
+				margin-right:20px; 
+				border-radius: 5px;
+				border: 1px #fff solid;
+				color: #fff;
+				label{ float: right;padding:0px 3px 1px 3px;height: 16px; cursor: pointer;}
+				span{ float: left; width: 6px; height: 18px;background-color: #fff;border-radius: 3px;}  
+			}
+			.sd{
+					label{ float: left;}
+					span{ float: right;}
+			} 
+		}
+	}
+		//室内
+	.indoor{
+		width: 250px;
+		height: 180px;
+		margin: 0px auto 0px; 
+		.infotext{
+			width: 100%; 
+			height: 100%; 
+			margin-left: -10px;
+			font-size: 26pt;
+			color: #fff;
+			text-align: center;
+			cursor: pointer;
+			img{
+				width: 30px;
+				height: 30px;
+				border:0px; 
+				position: absolute;  
+			}
+			.num{
+				label{font-size: 14px; opacity: 0.7;}
+				span{font-size: 22px;}
+			}
+		}
+	} 
+	.bottomHomeZd{
+		width: 200px;
+		height: 72px;    
+		margin-left: -110px;
+		display: inline-block;
+		position: fixed; 
+		bottom: 0px;
+		.opacity{
+			opacity: 0.1; 
+			background-color: #000000;
+			width: 100%;
+			height: 100%; 
+			display: inline-block;
+			border-radius: 10px 10px 0px 0px; 
+		}
+		.img1{ 
+			width:72px;
+			height:72px; 
+			margin: -75px 0px 0px 30px;
+			float: left;;
+
+		}
+		.img2{ 
+			width:72px;
+			height:72px; 
+			margin: -75px 0px 0px 100px;
+			float: left;;
+		}
+		.show{
+			display: inline-block;
+		}
+	} 
+	.bottomCtrlSd{ 
+		width: 100%;
+		height: 140px;  
+		position: fixed;  
+		display: none;
+		bottom: 0px;
+		.cover{
+			background-color: #000000;
+			opacity: 0.1;
+			width: 100%;
+			height: 100%;
+		}
+		.pos{
+			width: 50%; 
+			margin-top: -180px;
+			display:inline-block;
+		}
+		.box{
+			width: 324px;
+			height: 140px;     
+			margin:-140px  0px 0px -152px; 
+			position: absolute;
+			display:inline-block;
+			p{height: 65px;line-height: 65px;}
+			.sprang{ margin-top:-30px; } 
+			#fj{
+				position:absolute;
+			    width: 210px;
+			  	height: 4px;
+			 	margin: 34px 0;
+			 	padding: 0;
+			  	cursor: pointer;
+			  	border: 0;
+				border-radius: 2px;
+			 	outline: none;
+			 	background-color: #000000;
+			 	opacity: 0.1;
+			 	-webkit-appearance: none;
+			 }
+			.img1{ 
+				width:65px;
+				height:65px;   
+
+			}
+			.img2{ 
+				width:65px;
+				height:65px; 
+				margin: -75px 0px 0px 100px; 
+			}
+		} 
+	}
+	.selectDevice{
+ 		width: 300px;
+ 		margin:100px auto;
+ 		color: #fff;
+		text-align: center; 
+		ul{width: 300px;  height: 90px; overflow: hidden;}
+ 		li{
+ 			float: left; 
+ 			margin-left: 15px;
+ 			opacity: 0.8;
+ 			.img{
+ 				width: 80px;height: 60px; 
+ 				margin-bottom: 10px;
+ 				background: url(../SVG/device_logo02-01.svg) no-repeat center;
+ 			}
+ 		}
+ 		.on{
+ 			opacity: 1;
+			.img{
+				width: 90px;height: 60px; 
+				background: url(../SVG/device_logo01-01.svg) no-repeat center;
+			}
+		}
+ 		.selected{
+ 			clear: left;
+ 			width: 28px;
+ 			margin:20px auto 0px;  
+ 			img{ margin-left: 8px; width: 20px;}  
+ 		}
+	}
+	//对话框
+	.dialog{
+		width: 100%;
+		height: 100%;
+		position: absolute;; 
+		left:0px;
+		top:0px;
+		z-index: 99; 
+		display: none;
+		.cover{
+			width: 100%;
+			height: 100%;
+			background-color: #b4b4b4;
+			opacity: 0.4;
+		}
+		.myform{
+			background-color: #fff;
+			width: 255px;
+  			height: 130px;
+			position: absolute;; 
+			top:40%;
+			left:40%;
+			z-index: 111;
+			border-radius: 5px; 
+			color: #A49FA2;
+			.inputarea{  
+				width: 100%;
+				padding: 20px; 
+			} 
+			input{ margin-top: 5px; padding: 5px; border-radius: 5px; border:1px solid #ccc; width: 200px;}
+			.buttondiv{
+				 width: 255px;
+				 border-top:1px solid #ccc; 
+				 span{ background-color: transparent; border:0px; width: 124px; float: left; cursor: pointer;text-align: center; line-height: 37px;} 
+				 span:hover{
+					color: rgb(97,179,244);
+				}
+				.line{border-left:1px solid #ccc;float: left; height: 38px;width: 0px;}
+			}
+		}
+		.mypwd{
+			background-color: #fff;
+			width: 205px;
+  			height: 142px;
+			position: absolute;; 
+			top:40%;
+			left:40%;
+			z-index: 111;
+			border-radius: 5px; 
+			color: #A49FA2;
+			.inputarea{
+				width: 100%;
+				padding: 10px; 
+			} 
+			input{ margin-top: 5px; padding: 5px; border-radius: 5px; border:1px solid #ccc;}
+			.buttondiv{
+				 border:1px solid #ccc;
+				 border-radius: 5px;
+				 span{ background-color: transparent; border:0px; width: 100px; float: left; cursor: pointer;text-align: center; line-height: 42px;} 
+				 span:hover{
+					color: rgb(97,179,244);
+				}
+				.line{border-left:2px solid #ccc;float: left; height: 39px;width: 0px;}
+			}
+		} 
+	}
+
+} 

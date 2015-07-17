@@ -24,6 +24,10 @@ Description: 注册、登录、修改密码、邮箱等基础用户管理
 [updatePassword](#7)<br/>
 
 [updateEmail](#8)<br/>
+
+[getCurrentUserInfo](#9)<br/>
+
+[loginOut](#10)<br/>
 </div>
 
 #**概述**
@@ -48,10 +52,22 @@ phone：
 
 ret：
 
-- 类型：int对象
+- 类型：json数组
+- ret.length	//获取用户个数，1为存在，0为不存在，(正常情况只会得到0或者1)
+- ret[0].get("userToken") //获取UserToken
+- ret[0].get("email") //获取email
+- ret[0].get("username") //获取username
+- ret[0].get("mobilePhoneNumber") //获取手机号
 
 内部字段：
- 0 //操作成功返回用户名为phone用户的个数
+```js
+ [{
+ 	"userToken":"cb33339e-2222-4377-1111-8043040",
+ 	"email":"222@qq.com",
+ 	"username":"13122111122",
+ 	"mobilePhoneNumber":"13122111122",
+ }]
+ ```
 
 err：
 
@@ -63,7 +79,7 @@ err：
 ```js
 var phone = "131XXXX2211";
 $mxuser.isExist(phone, function(ret, err) {
-	alert("ret = " + ret);
+	alert("用户个数" + ret.length);//获取用户个数，1为
 });
 ```
 
@@ -195,7 +211,7 @@ iOS系统，Android系统
 
 #**setPassword**<div id="4"></div>
 
-设置用户初始密码完成注册
+用户首次注册时候，设置用户初始密码，并完成注册
 
 $mxuser.setPassword(phone, password,app_id, callback(ret, err))
 
@@ -305,12 +321,6 @@ ret：
   "mobilePhoneNumber": "", //手机号
   "userToken": "",	//Token
   "username": "", 	//用户名
-  "emailVerified": false,	//是否验证了邮箱
-  "authData": null,
-  "mobilePhoneVerified": true,
-  "objectId": "",
-  "createdAt": "2015-05-18T08:58:55.956Z",
-  "updatedAt": "2015-05-18T09:52:52.660Z"
 }
 ```
 
@@ -351,7 +361,7 @@ iOS系统，Android系统
 
 #**resetPassword**<div id="6"></div>
 
-重置用户密码，一般是在验证短信通过后执行
+忘记密码后重置密码，一般是在验证短信通过后执行
 
 $mxuser.resetPassword(password, callback(ret, err))
 
@@ -374,12 +384,6 @@ ret：
   "mobilePhoneNumber": "", //手机号
   "userToken": "",	//Token
   "username": "", 	//用户名
-  "emailVerified": false,	//是否验证了邮箱
-  "authData": null,
-  "mobilePhoneVerified": true,
-  "objectId": "",
-  "createdAt": "2015-05-18T08:58:55.956Z",
-  "updatedAt": "2015-05-18T09:52:52.660Z"
 }
 ```
 
@@ -514,14 +518,7 @@ ret：
   	"mobilePhoneNumber": "", //手机号
   	"userToken": "",	//Token
   	"username": "", 	//用户名
-  	"emailVerified": false,	//是否验证了邮箱
-  	"authData": null,
-  	"mobilePhoneVerified": true,
-  	"objectId": "",
 	"email":"222@qq.com",	//邮箱
-	"objectId":"",
-	"createdAt":"2015-05-18T08:58:55.956Z",
-	"updatedAt":"2015-05-18T10:28:05.733Z"
 }
 ```
 
@@ -545,6 +542,68 @@ $mxuser.updateEmail(email, function(ret, err) {
 	alert("ret = " + JSON.stringify(ret));
 	alert("err = " + JSON.stringify(err));
 });
+```
+
+##补充说明
+
+无
+
+##可用性
+
+iOS系统，Android系统
+
+可提供的1.0.0及更高版本
+
+#**getCurrentUserInfo**<div id="8"></div>
+
+获取当前用户的信息
+
+$mxuser.getCurrentUserInfo(callback(ret))
+
+##callback(ret, err)
+ret：
+
+- 类型：JSON对象
+
+内部字段：
+```js
+{
+  	"mobilePhoneNumber": "", //手机号
+  	"userToken": "",	//Token
+  	"username": "", 	//用户名
+	"email":"222@qq.com",	//邮箱
+}
+```
+
+##示例代码
+
+```js
+$mxuser.getCurrentUserInfo(function(ret) {
+	alert(JSON.stringify(ret));
+});
+```
+
+##补充说明
+
+无
+
+##可用性
+
+iOS系统，Android系统
+
+可提供的1.0.0及更高版本
+
+
+#**loginOut**<div id="8"></div>
+
+注销当前用户
+
+$mxuser.loginOut();
+
+##示例代码
+
+```js
+$mxuser.loginOut();
 ```
 
 ##补充说明

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="" />
+		<title></title>
+		<script src="js/api.js"></script>
+	</head>
+	<body style="margin-top: 25px;">
+		<button type="button" onclick="hook()">hookpage</button>
+		<button type="button" onclick="localPage()">localpage</button>
+	</body>
+	<script type="text/javascript">
+		function hook(){
+			api.openWin({
+		        name: 'main',
+		        url: 'http://hook.gulumi.com/code/codelink/airclear/main.html'
+	        });
+		}
+		var inc = 0;
+		apiready = function(){
+			api.openWin({
+		        name: 'main',
+		        url: 'http://hook.gulumi.com/code/codelink/airclear/outRoom.html'
+	        });
+//			api.addEventListener({
+//	            name:'runx'
+//          },function(ret,err){
+//          	api.openFrame({
+//		            name: ++inc + 'local',
+//		            url: 'local.html',
+//		            rect: {
+//			            x:0,
+//			            y:0,
+//			            w:0,
+//			            h:0
+//		            },
+//		            pageParam:ret.value
+//	            });
+//          });
+		}
+		
+		function localPage(){
+			api.openWin({
+		        name: 'main',
+		        url: 'testeasylink.html'
+	        });
+		}
+	</script>
+</html>

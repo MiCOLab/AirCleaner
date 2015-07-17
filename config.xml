@@ -4,7 +4,7 @@
   <name>AirCleaner</name>
   <description>绑定GIT</description>
   <author email="bringmehome@vip.qq.com" href="http://www.apicloud.com">Rocke</author>
-  <content src="index.html"/>
+  <content src="airclear/outDoor.html"/>
   <preference name="pageBounce" value="false"/>
   <preference name="appBackground" value="rgba(0,0,0,0.0)"/>
   <preference name="windowBackground" value="rgba(0,0,0,0.0)"/>
@@ -14,7 +14,7 @@
   <preference name="autoLaunch" value="true"/>
   <preference name="fullScreen" value="false"/>
   <preference name="autoUpdate" value="true"/>
-  <preference name="smartUpdate" value="false"/>
+  <preference name="smartUpdate" value="true"/>
   <preference name="debug" value="false"/>
   <preference name="iOS7StatusBarAppearance" value="true"/>
   <permission name="readPhoneState"/>
@@ -30,7 +30,7 @@
   <permission name="contact"/>
   <access origin="*"/>
   <feature name="ajpush">
-    <param name="app_key" value="9e7f9d5870b4b32510bdbc4b"/>
-    <param name="channel" value="AirCleaner"/>
+  	<param name="app_key" value="9e7f9d5870b4b32510bdbc4b" />
+    <param name="channel" value="your channel" />
   </feature>
 </widget>

@@ -1,0 +1,417 @@
+@charset "utf-8";
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  font: arial, "\5b8b\4f53", sans-serif, tahoma, "Microsoft YaHei";
+}
+* {
+  margin: 0px;
+  padding: 0px;
+}
+@font-face {
+  font-family: mui;
+  src: url("../fonts/mui.ttf");
+}
+li {
+  list-style: none;
+}
+.base .level0 {
+  width: 100%;
+  height: 100%;
+  background: url("../SVG/bg_level_2-01.svg") no-repeat center;
+}
+.base .level0 .infoimg {
+  width: 225px;
+  height: 100%;
+  background: url(../svg/bg_img_indoor_level_2-01.svg) no-repeat center;
+}
+.base .level1 {
+  width: 100%;
+  height: 100%;
+  background: url("../SVG/bg_level_1-01.svg") no-repeat center;
+}
+.base .level1 .infoimg {
+  width: 225px;
+  height: 100%;
+  background: url(../svg/bg_img_indoor_level_1-01.svg) no-repeat center;
+}
+.base .level2 {
+  width: 100%;
+  height: 100%;
+  background: url("../SVG/bg_level_3-01.svg") no-repeat center;
+}
+.base .level2 .infoimg {
+  width: 225px;
+  height: 100%;
+  background: url(../svg/bg_img_indoor_level_3-01.svg) no-repeat center;
+}
+.base .level3 {
+  width: 100%;
+  height: 100%;
+  background: url("../SVG/bg_level_4-01.svg") no-repeat center;
+}
+.base .level3 .infoimg {
+  width: 225px;
+  height: 100%;
+  background: url(../svg/bg_img_indoor_level_4-01.svg) no-repeat center;
+}
+.base .level4 {
+  width: 100%;
+  height: 100%;
+  background: url("../SVG/bg_level_5-01.svg") no-repeat center;
+}
+.base .level4 .infoimg {
+  width: 225px;
+  height: 100%;
+  background: url(../SVG/bg_img_indoor_level_5-01.svg) no-repeat center;
+}
+.base .level4 {
+  width: 100%;
+  height: 100%;
+  background: url("../SVG/bg_sleep-01.svg") no-repeat center;
+}
+.base .level4 .infoimg {
+  width: 225px;
+  height: 100%;
+  background: url(../SVG/bg_img_indoor_sleep-01.svg) no-repeat center;
+}
+.base .header {
+  width: 100%;
+  height: 36px;
+  padding: 18px;
+}
+.base .header .border {
+  border: 1px solid #fff;
+  border-radius: 3px;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+}
+.base .header .lf {
+  width: 30%;
+  height: 100%;
+  float: left;
+}
+.base .header .lf .op {
+  width: 36px;
+  height: 36px;
+  background: url("../SVG/icon_more-01.svg") no-repeat center;
+  display: block;
+  cursor: pointer;
+}
+.base .header .lc {
+  width: 33%;
+  height: 100%;
+  float: left;
+  text-align: center;
+}
+.base .header .lc .dingwei {
+  width: 110px;
+  height: 36px;
+  display: inline-block;
+  margin: auto;
+  text-align: left;
+  background: url("../SVG/icon_house-01.svg") no-repeat 7px 1px;
+  color: #fff;
+  font-size: 18pt;
+}
+.base .header .lc .dingwei .txt {
+  position: absolute;
+  margin: -32px 0px 0px 45px;
+  cursor: pointer;
+}
+.base .header .lr {
+  width: 32%;
+  min-width: 48px;
+  height: 100%;
+  padding-top: 6px;
+  float: left;
+}
+.base .header .lr .btnArea {
+  float: right;
+  padding: 2px;
+  width: 48px;
+  height: 19px;
+  opacity: 0.7;
+  margin-right: 20px;
+  border-radius: 5px;
+  border: 1px #fff solid;
+  color: #fff;
+}
+.base .header .lr .btnArea label {
+  float: right;
+  padding: 0px 3px 1px 3px;
+  height: 16px;
+  cursor: pointer;
+}
+.base .header .lr .btnArea span {
+  float: left;
+  width: 6px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 3px;
+}
+.base .header .lr .sd label {
+  float: left;
+}
+.base .header .lr .sd span {
+  float: right;
+}
+.base .indoor {
+  width: 250px;
+  height: 180px;
+  margin: 0px auto 0px;
+}
+.base .indoor .infotext {
+  width: 100%;
+  height: 100%;
+  margin-left: -10px;
+  font-size: 26pt;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.base .indoor .infotext img {
+  width: 30px;
+  height: 30px;
+  border: 0px;
+  position: absolute;
+}
+.base .indoor .infotext .num label {
+  font-size: 14px;
+  opacity: 0.7;
+}
+.base .indoor .infotext .num span {
+  font-size: 22px;
+}
+.base .bottomHomeZd {
+  width: 200px;
+  height: 72px;
+  margin-left: -110px;
+  display: inline-block;
+  position: fixed;
+  bottom: 0px;
+}
+.base .bottomHomeZd .opacity {
+  opacity: 0.1;
+  background-color: #000000;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 10px 10px 0px 0px;
+}
+.base .bottomHomeZd .img1 {
+  width: 72px;
+  height: 72px;
+  margin: -75px 0px 0px 30px;
+  float: left;
+}
+.base .bottomHomeZd .img2 {
+  width: 72px;
+  height: 72px;
+  margin: -75px 0px 0px 100px;
+  float: left;
+}
+.base .bottomHomeZd .show {
+  display: inline-block;
+}
+.base .bottomCtrlSd {
+  width: 100%;
+  height: 140px;
+  position: fixed;
+  display: none;
+  bottom: 0px;
+}
+.base .bottomCtrlSd .cover {
+  background-color: #000000;
+  opacity: 0.1;
+  width: 100%;
+  height: 100%;
+}
+.base .bottomCtrlSd .pos {
+  width: 50%;
+  margin-top: -180px;
+  display: inline-block;
+}
+.base .bottomCtrlSd .box {
+  width: 324px;
+  height: 140px;
+  margin: -140px 0px 0px -152px;
+  position: absolute;
+  display: inline-block;
+}
+.base .bottomCtrlSd .box p {
+  height: 65px;
+  line-height: 65px;
+}
+.base .bottomCtrlSd .box .sprang {
+  margin-top: -30px;
+}
+.base .bottomCtrlSd .box #fj {
+  position: absolute;
+  width: 210px;
+  height: 4px;
+  margin: 34px 0;
+  padding: 0;
+  cursor: pointer;
+  border: 0;
+  border-radius: 2px;
+  outline: none;
+  background-color: #000000;
+  opacity: 0.1;
+  -webkit-appearance: none;
+}
+.base .bottomCtrlSd .box .img1 {
+  width: 65px;
+  height: 65px;
+}
+.base .bottomCtrlSd .box .img2 {
+  width: 65px;
+  height: 65px;
+  margin: -75px 0px 0px 100px;
+}
+.base .selectDevice {
+  width: 300px;
+  margin: 100px auto;
+  color: #fff;
+  text-align: center;
+}
+.base .selectDevice ul {
+  width: 300px;
+  height: 90px;
+  overflow: hidden;
+}
+.base .selectDevice li {
+  float: left;
+  margin-left: 15px;
+  opacity: 0.8;
+}
+.base .selectDevice li .img {
+  width: 80px;
+  height: 60px;
+  margin-bottom: 10px;
+  background: url(../SVG/device_logo02-01.svg) no-repeat center;
+}
+.base .selectDevice .on {
+  opacity: 1;
+}
+.base .selectDevice .on .img {
+  width: 90px;
+  height: 60px;
+  background: url(../SVG/device_logo01-01.svg) no-repeat center;
+}
+.base .selectDevice .selected {
+  clear: left;
+  width: 28px;
+  margin: 20px auto 0px;
+}
+.base .selectDevice .selected img {
+  margin-left: 8px;
+  width: 20px;
+}
+.base .dialog {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 99;
+  display: none;
+}
+.base .dialog .cover {
+  width: 100%;
+  height: 100%;
+  background-color: #b4b4b4;
+  opacity: 0.4;
+}
+.base .dialog .myform {
+  background-color: #fff;
+  width: 255px;
+  height: 130px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  z-index: 111;
+  border-radius: 5px;
+  color: #A49FA2;
+}
+.base .dialog .myform .inputarea {
+  width: 100%;
+  padding: 20px;
+}
+.base .dialog .myform input {
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+.base .dialog .myform .buttondiv {
+  width: 255px;
+  border-top: 1px solid #ccc;
+}
+.base .dialog .myform .buttondiv span {
+  background-color: transparent;
+  border: 0px;
+  width: 124px;
+  float: left;
+  cursor: pointer;
+  text-align: center;
+  line-height: 37px;
+}
+.base .dialog .myform .buttondiv span:hover {
+  color: #61b3f4;
+}
+.base .dialog .myform .buttondiv .line {
+  border-left: 1px solid #ccc;
+  float: left;
+  height: 38px;
+  width: 0px;
+}
+.base .dialog .mypwd {
+  background-color: #fff;
+  width: 205px;
+  height: 142px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  z-index: 111;
+  border-radius: 5px;
+  color: #A49FA2;
+}
+.base .dialog .mypwd .inputarea {
+  width: 100%;
+  padding: 10px;
+}
+.base .dialog .mypwd input {
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.base .dialog .mypwd .buttondiv {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.base .dialog .mypwd .buttondiv span {
+  background-color: transparent;
+  border: 0px;
+  width: 100px;
+  float: left;
+  cursor: pointer;
+  text-align: center;
+  line-height: 42px;
+}
+.base .dialog .mypwd .buttondiv span:hover {
+  color: #61b3f4;
+}
+.base .dialog .mypwd .buttondiv .line {
+  border-left: 2px solid #ccc;
+  float: left;
+  height: 39px;
+  width: 0px;
+}

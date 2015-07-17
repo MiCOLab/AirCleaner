@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.1.3.js" ></script>
+		<script type="text/javascript" src="js/head.load.min.js" ></script>
+	</head>
+	<body style="background:#333333;">
+		<div id="msg"></div>
+	</body>
+	<script type="application/javascript">
+		var params;
+		apiready=function () {
+			var p = api.pageParam;
+			if (p != null){
+				//alert(JSON.stringify(p));
+				params = p.params;
+				head.load(p.js,function () {
+					eval(p.run);
+				})
+			}
+		}
+	</script>
+</html>
